@@ -1,0 +1,39 @@
+//
+//  ContentView.swift
+//  TVmazeAssessment
+//
+//  Created by Otávio Zabaleta on 27/03/2024.
+//
+
+import SwiftUI
+import SwiftData
+
+struct ContentView: View {
+    
+
+    var body: some View {
+        TabView {
+            NavigationView {
+                
+            }.tabItem {
+                Label("Series", systemImage: "tv")
+            }
+            
+            NavigationView {
+                ShowSearchView(viewModel: ShowSearchViewModel())
+            }.tabItem {
+                Label("Search", systemImage: "magnifyingglass")
+            }
+        }
+        HStack {
+
+        }
+        .onAppear {
+            
+        }
+    }
+}
+
+#Preview {
+    ContentView()
+}

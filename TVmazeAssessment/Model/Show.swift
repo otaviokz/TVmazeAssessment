@@ -12,9 +12,9 @@ struct Show: Codable {
     let name: String
     let images: Images
     let genres: [String]
-    let summary: String
+    let summary: String?
     let schedule: Schedule
-    let premiered: String
+    let premiered: String?
     let ended: String?
     
     enum CodingKeys: String, CodingKey {
@@ -28,9 +28,15 @@ struct Show: Codable {
         name = try container.decode(String.self, forKey: .name)
         images = try container.decode(Images.self, forKey: .images)
         genres = try container.decode([String].self, forKey: .genres)
-        summary = try container.decode(String.self, forKey: .summary)
+        summary = try container.decodeIfPresent(String.self, forKey: .summary)
         schedule = try container.decode(Schedule.self, forKey: .schedule)
-        premiered = try container.decode(String.self, forKey: .premiered)
+        premiered = try container.decodeIfPresent(String.self, forKey: .premiered)
         ended = try container.decodeIfPresent(String.self, forKey: .ended)
+    }
+}
+
+extension Show: Equatable {
+    static func == (lhs: Show, rhs: Show) -> Bool {
+        lhs.id == rhs.id && lhs.name == rhs.name
     }
 }

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "under_the_dome.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

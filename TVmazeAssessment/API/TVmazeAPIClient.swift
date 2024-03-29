@@ -7,8 +7,13 @@
 
 import Foundation
 
+enum TVmazeAPIClientError: Error {
+    case http(Error)
+    case unknown
+}
+
 protocol TVmazeAPIClientType {
-    func searchSeries(query: String) async throws -> [Show]
+    func searchShows(query: String) async throws -> [Show]
 }
 
 class TVmazeAPIClient: TVmazeAPIClientType {
@@ -19,18 +24,27 @@ class TVmazeAPIClient: TVmazeAPIClientType {
     init(httpClient: HTTPClientType = HTTPClient.shared) {
         self.httpClient = httpClient
     }
+    
+    private var searchEndpoint: String { "search/shows" }
+    
+    func searchShows(query: String) async throws -> [Show] {
+        guard var baseUrl = URL(string: baseURL) else {
+            fatalError("baseURL must produce an URL")
+        }
+        baseUrl.append(path: searchEndpoint)
+        baseUrl.append(queryItems: [URLQueryItem(name: "q", value: query)])
+        do {
+            let containers: [ShowContainer] = try await httpClient
+                .get(baseUrl, headers: ["apiKey": apiKey])
+            return containers.map { $0.show }
+        } catch {
+            throw TVmazeAPIClientError.http(error)
+        }
+    }
 }
 
 extension TVmazeAPIClient {
-    private var searchEndpoint: String { "search/shows" }
     
-    func searchSeries(query: String) async throws -> [Show] {
-        guard var searchURL = URL(string: baseURL) else {
-            fatalError("baseURL must produce an URL")
-        }
-        searchURL.append(path: searchEndpoint)
-        return try await httpClient.get(searchURL, headers: ["q": query, "apiKey": apiKey])
-    }
 }
 
 extension TVmazeAPIClient {
