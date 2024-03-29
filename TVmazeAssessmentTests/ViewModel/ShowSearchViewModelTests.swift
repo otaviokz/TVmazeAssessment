@@ -83,27 +83,3 @@ final class ShowSearchViewModelTests: XCTestCase {
         return (ShowSearchViewModel(api: mockApiClient), mockApiClient)
     }
 }
-
-class MockTVmazeAPIClient: TVmazeAPIClientType {
-    var shows: [Show] = []
-    var error: TVmazeAPIClientError?
-    func searchShows(query: String) async throws -> [Show] {
-        while true {
-            if let error = error {
-                throw error
-            } else if !shows.isEmpty {
-                return shows
-            }
-            sleep(1)
-        }
-    }
-
-    let defaultShows = JSONLoader.showSearchSample()
-}
-
-public extension XCTestCase {
-    func blockExpectation(block: @escaping () -> Bool) -> XCTestExpectation {
-        let evaluation: () -> Bool = { block() == true }
-        return expectation(for: NSPredicate(value: true), evaluatedWith: evaluation())
-    }
-}

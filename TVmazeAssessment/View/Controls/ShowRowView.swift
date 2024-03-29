@@ -15,7 +15,7 @@ struct ShowRowView: View {
             Text(show.name)
                 .font(.headline)
             Spacer()
-                if let url = URL(string: show.images.medium) {
+            if let url = show.mediumPosterURL {
                     if let poster = ImageCache.shared[url] {
                         poster
                             .resizable()
@@ -53,25 +53,3 @@ struct ShowRowView: View {
     ShowRowView(show: Show())
         .previewLayout(.sizeThatFits)
 }
-
-private extension Show {
-    init() {
-        id = 1
-        name = "Under the Dome"
-        images = Images(medium: "", original: "")
-        genres = ["Drama", "Science-Fiction", "Thriller"]
-        summary = "People wake up one day and theres a dome enclosing their city. Drama ensues."
-        schedule = Schedule(time: "22:00", days: ["Wednesday"])
-        premiered = "2013-06-24"
-        ended = "2015-09-10"
-    }
-}
-
-//let id: Int
-//let name: String
-//let images: Images
-//let genres: [String]
-//let summary: String
-//let schedule: Schedule
-//let premiered: String
-//let ended: String?

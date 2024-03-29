@@ -25,12 +25,6 @@ struct ContentView: View {
                 Label("Search", systemImage: "magnifyingglass")
             }
         }
-        HStack {
-
-        }
-        .onAppear {
-            
-        }
     }
 }
 

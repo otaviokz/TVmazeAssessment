@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B6FC0DC2BB76DE1003BF502 /* SeasonsAndEpisodesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FC0DB2BB76DE1003BF502 /* SeasonsAndEpisodesViewModelTests.swift */; };
+		2B6FC0DE2BB76E5D003BF502 /* XCTExpectation+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FC0DD2BB76E5D003BF502 /* XCTExpectation+Util.swift */; };
+		2B6FC0E02BB76FFC003BF502 /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FC0DF2BB76FFC003BF502 /* MockAPIClient.swift */; };
 		2BA981172BB4A1910027CE94 /* TVmazeAssessmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA981162BB4A1910027CE94 /* TVmazeAssessmentApp.swift */; };
 		2BA981192BB4A1910027CE94 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA981182BB4A1910027CE94 /* ContentView.swift */; };
 		2BA9811B2BB4A1910027CE94 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA9811A2BB4A1910027CE94 /* Item.swift */; };
@@ -40,6 +43,13 @@
 		2BA9817E2BB61E630027CE94 /* ShowContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA9817D2BB61E630027CE94 /* ShowContainerTests.swift */; };
 		2BA981822BB61ED50027CE94 /* SampleShowSearchResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 2BA981812BB61ED50027CE94 /* SampleShowSearchResponse.json */; };
 		2BA981852BB6241B0027CE94 /* ShowSearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA981842BB6241B0027CE94 /* ShowSearchViewModelTests.swift */; };
+		2BA981892BB659E90027CE94 /* ShowDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA981882BB659E90027CE94 /* ShowDetailsView.swift */; };
+		2BA9818B2BB65A760027CE94 /* SeasonsAndEpisodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA9818A2BB65A760027CE94 /* SeasonsAndEpisodesViewModel.swift */; };
+		2BA9818D2BB664660027CE94 /* SampleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA9818C2BB664660027CE94 /* SampleModels.swift */; };
+		2BA981922BB66C510027CE94 /* EpisodeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA981912BB66C510027CE94 /* EpisodeRowView.swift */; };
+		2BA981942BB67DCB0027CE94 /* EpisodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA981932BB67DCB0027CE94 /* EpisodeDetailsView.swift */; };
+		2BA981962BB684690027CE94 /* Image+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA981952BB684690027CE94 /* Image+Formatting.swift */; };
+		2BA981982BB694790027CE94 /* String+RemoveHTMLTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA981972BB694790027CE94 /* String+RemoveHTMLTags.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +70,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B6FC0DB2BB76DE1003BF502 /* SeasonsAndEpisodesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsAndEpisodesViewModelTests.swift; sourceTree = "<group>"; };
+		2B6FC0DD2BB76E5D003BF502 /* XCTExpectation+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTExpectation+Util.swift"; sourceTree = "<group>"; };
+		2B6FC0DF2BB76FFC003BF502 /* MockAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
 		2BA981132BB4A1910027CE94 /* TVmazeAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVmazeAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA981162BB4A1910027CE94 /* TVmazeAssessmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVmazeAssessmentApp.swift; sourceTree = "<group>"; };
 		2BA981182BB4A1910027CE94 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +109,14 @@
 		2BA9817D2BB61E630027CE94 /* ShowContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowContainerTests.swift; sourceTree = "<group>"; };
 		2BA981812BB61ED50027CE94 /* SampleShowSearchResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleShowSearchResponse.json; sourceTree = "<group>"; };
 		2BA981842BB6241B0027CE94 /* ShowSearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSearchViewModelTests.swift; sourceTree = "<group>"; };
+		2BA981882BB659E90027CE94 /* ShowDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailsView.swift; sourceTree = "<group>"; };
+		2BA9818A2BB65A760027CE94 /* SeasonsAndEpisodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsAndEpisodesViewModel.swift; sourceTree = "<group>"; };
+		2BA9818C2BB664660027CE94 /* SampleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleModels.swift; sourceTree = "<group>"; };
+		2BA981912BB66C510027CE94 /* EpisodeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRowView.swift; sourceTree = "<group>"; };
+		2BA981932BB67DCB0027CE94 /* EpisodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsView.swift; sourceTree = "<group>"; };
+		2BA981952BB684690027CE94 /* Image+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Formatting.swift"; sourceTree = "<group>"; };
+		2BA981972BB694790027CE94 /* String+RemoveHTMLTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveHTMLTags.swift"; sourceTree = "<group>"; };
+		2BA981992BB69AC50027CE94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +167,8 @@
 		2BA981152BB4A1910027CE94 /* TVmazeAssessment */ = {
 			isa = PBXGroup;
 			children = (
+				2BA981992BB69AC50027CE94 /* Info.plist */,
+				2BA9818E2BB667D40027CE94 /* Styling */,
 				2BA981722BB600570027CE94 /* Util */,
 				2BA9814C2BB4A6430027CE94 /* Model */,
 				2BA9814F2BB4B3A30027CE94 /* View */,
@@ -163,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				2BA9811F2BB4A1930027CE94 /* Preview Assets.xcassets */,
+				2BA9818C2BB664660027CE94 /* SampleModels.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -191,8 +215,8 @@
 		2BA981422BB4A4480027CE94 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				2BA9814A2BB4A5A50027CE94 /* TVmazeAPIClient.swift */,
 				2BA981432BB4A4550027CE94 /* HTTPClient */,
+				2BA9814A2BB4A5A50027CE94 /* TVmazeAPIClient.swift */,
 				2BA981792BB611240027CE94 /* ImageCache.swift */,
 			);
 			path = API;
@@ -245,6 +269,8 @@
 			isa = PBXGroup;
 			children = (
 				2BA981582BB4B7F00027CE94 /* JSONLoader.swift */,
+				2B6FC0DD2BB76E5D003BF502 /* XCTExpectation+Util.swift */,
+				2B6FC0DF2BB76FFC003BF502 /* MockAPIClient.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -264,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				2BA981702BB5FCA30027CE94 /* ShowSearchViewModel.swift */,
+				2BA9818A2BB65A760027CE94 /* SeasonsAndEpisodesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -281,6 +308,8 @@
 			children = (
 				2BA981182BB4A1910027CE94 /* ContentView.swift */,
 				2BA9816D2BB5FC570027CE94 /* ShowSearchView.swift */,
+				2BA981882BB659E90027CE94 /* ShowDetailsView.swift */,
+				2BA981932BB67DCB0027CE94 /* EpisodeDetailsView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -289,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				2BA981772BB60B5B0027CE94 /* ShowRowView.swift */,
+				2BA981912BB66C510027CE94 /* EpisodeRowView.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -297,8 +327,18 @@
 			isa = PBXGroup;
 			children = (
 				2BA981842BB6241B0027CE94 /* ShowSearchViewModelTests.swift */,
+				2B6FC0DB2BB76DE1003BF502 /* SeasonsAndEpisodesViewModelTests.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2BA9818E2BB667D40027CE94 /* Styling */ = {
+			isa = PBXGroup;
+			children = (
+				2BA981952BB684690027CE94 /* Image+Formatting.swift */,
+				2BA981972BB694790027CE94 /* String+RemoveHTMLTags.swift */,
+			);
+			path = Styling;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,15 +481,22 @@
 				2BA9817A2BB611240027CE94 /* ImageCache.swift in Sources */,
 				2BA981712BB5FCA30027CE94 /* ShowSearchViewModel.swift in Sources */,
 				2BA981562BB4B7AE0027CE94 /* Images.swift in Sources */,
+				2BA9818B2BB65A760027CE94 /* SeasonsAndEpisodesViewModel.swift in Sources */,
 				2BA981472BB4A4D70027CE94 /* HTTPClient.swift in Sources */,
 				2BA9814E2BB4A65F0027CE94 /* Show.swift in Sources */,
 				2BA9816A2BB5EEAE0027CE94 /* Season.swift in Sources */,
 				2BA981452BB4A4AA0027CE94 /* Request+Utils.swift in Sources */,
+				2BA981892BB659E90027CE94 /* ShowDetailsView.swift in Sources */,
+				2BA981942BB67DCB0027CE94 /* EpisodeDetailsView.swift in Sources */,
 				2BA981492BB4A4F80027CE94 /* HTTPClientError.swift in Sources */,
 				2BA9814B2BB4A5A50027CE94 /* TVmazeAPIClient.swift in Sources */,
+				2BA981922BB66C510027CE94 /* EpisodeRowView.swift in Sources */,
+				2BA9818D2BB664660027CE94 /* SampleModels.swift in Sources */,
 				2BA9811B2BB4A1910027CE94 /* Item.swift in Sources */,
 				2BA981682BB5E7AE0027CE94 /* Shedule.swift in Sources */,
 				2BA981622BB4C6180027CE94 /* Episode.swift in Sources */,
+				2BA981962BB684690027CE94 /* Image+Formatting.swift in Sources */,
+				2BA981982BB694790027CE94 /* String+RemoveHTMLTags.swift in Sources */,
 				2BA981172BB4A1910027CE94 /* TVmazeAssessmentApp.swift in Sources */,
 				2BA9816E2BB5FC570027CE94 /* ShowSearchView.swift in Sources */,
 				2BA981742BB6006B0027CE94 /* String+SearchSanitising.swift in Sources */,
@@ -463,10 +510,13 @@
 				2BA9817E2BB61E630027CE94 /* ShowContainerTests.swift in Sources */,
 				2BA9816C2BB5F3730027CE94 /* SeasonTests.swift in Sources */,
 				2BA981852BB6241B0027CE94 /* ShowSearchViewModelTests.swift in Sources */,
+				2B6FC0E02BB76FFC003BF502 /* MockAPIClient.swift in Sources */,
 				2BA9812A2BB4A1930027CE94 /* TVmazeAssessmentTests.swift in Sources */,
 				2BA9815C2BB4B8690027CE94 /* ShowTests.swift in Sources */,
 				2BA981662BB4C6730027CE94 /* EpisodeTests.swift in Sources */,
+				2B6FC0DE2BB76E5D003BF502 /* XCTExpectation+Util.swift in Sources */,
 				2BA981592BB4B7F00027CE94 /* JSONLoader.swift in Sources */,
+				2B6FC0DC2BB76DE1003BF502 /* SeasonsAndEpisodesViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +675,7 @@
 				DEVELOPMENT_TEAM = H7MUL7BCTG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TVmazeAssessment/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -654,6 +705,7 @@
 				DEVELOPMENT_TEAM = H7MUL7BCTG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TVmazeAssessment/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

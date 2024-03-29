@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Season {
+struct Season: Equatable {
     let number: Int
     let episodes: [Episode]
+    
+    static func == (lhs: Season, rhs: Season) -> Bool {
+        lhs.episodes == rhs.episodes
+    }
 }
