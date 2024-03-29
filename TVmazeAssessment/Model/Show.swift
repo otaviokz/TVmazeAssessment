@@ -17,6 +17,14 @@ struct Show: Codable {
     let premiered: String?
     let ended: String?
     
+    var mediumPosterURL: URL? {
+        URL(string: images.medium)
+    }
+    
+    var originalPosterURL: URL? {
+        URL(string: images.original)
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id, name, genres, summary, schedule, premiered, ended
         case images = "image"

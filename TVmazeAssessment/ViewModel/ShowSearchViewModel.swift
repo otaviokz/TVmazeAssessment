@@ -13,12 +13,15 @@ class ShowSearchViewModel: ObservableObject {
     private let api: TVmazeAPIClientType
     @Published var isLoading: Bool = false
     @Published var shows: [Show] = []
+    
+    var showErrorMessage: Bool = false
+    var errorMessage: String = ""
+    var timer: Timer?
     @Published var searchText: String = "" {
         didSet {
             if searchText.searchSanitised.count >= 2 {
-                // Fixes bug where focusing and unfocusing the TextField
-                // whold be seen as changing searchText, resulting in
-                // new launch of a search timer
+                // Fixes bug where focusing and unfocusing the TextField whold be seen as
+                // changing searchText, resulting in new launch of a search timer
                 if oldValue.searchSanitised != searchText.searchSanitised {
                     launchSearchTimer()
                 }
@@ -28,11 +31,8 @@ class ShowSearchViewModel: ObservableObject {
             }
         }
     }
-    var showErrorMessage: Bool = false
-    var errorMessage: String = ""
-    var timer: Timer?
     
-    init(api: TVmazeAPIClientType = TVmazeAPIClient()) {
+    init(api: TVmazeAPIClientType = TVmazeAPIClient.shared) {
         self.api = api
     }
     

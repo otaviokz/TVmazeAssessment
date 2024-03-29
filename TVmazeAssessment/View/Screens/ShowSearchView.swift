@@ -16,7 +16,7 @@ struct ShowSearchView: View {
             if viewModel.isLoading {
                 Spacer()
                 ProgressView()
-                    .controlSize(.extraLarge)/*.frame(width: 120, height: 120).tint(.primary)*/
+                    .controlSize(.extraLarge)
                 Spacer()
             } else {
                 TextField("Type at least 2 letters", text: $viewModel.searchText)
@@ -30,7 +30,7 @@ struct ShowSearchView: View {
                     List {
                         ForEach(viewModel.shows, id: \.id) { show in
                             NavigationLink(destination: {
-                                //                            ShowDetailsView(movie: movie)
+                                ShowDetailsView(show: show)
                             }, label: {
                                 ShowRowView(show: show)
                             })
@@ -42,9 +42,15 @@ struct ShowSearchView: View {
                 
             }
         }
+        .alert(viewModel.errorMessage, isPresented: $viewModel.showErrorMessage) {
+            Button("OK") {
+                viewModel.showErrorMessage = false
+            }
+        }
         .onAppear {
             fieldFocus = .searchTextField
         }
+        .navigationTitle("Search")
     }
 }
 

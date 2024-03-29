@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Episode: Codable {
+struct Episode: Codable, Equatable {
     let id: Int
     let name: String
     let number: Int
     let seasonNumber: Int
-    let summary: String
+    let summary: String?
     let images: Images
     
     enum CodingKeys: String, CodingKey {
@@ -27,8 +27,12 @@ struct Episode: Codable {
         name = try container.decode(String.self, forKey: .name)
         number = try container.decode(Int.self, forKey: .number)
         seasonNumber = try container.decode(Int.self, forKey: .seasonNumber)
-        summary = try container.decode(String.self, forKey: .summary)
+        summary = try container.decodeIfPresent(String.self, forKey: .summary)
         images = try container.decode(Images.self, forKey: .images)
+    }
+    
+    static func == (lhs: Episode, rhs: Episode) -> Bool {
+        lhs.name == rhs.name && lhs.id == rhs.id
     }
 }
 
