@@ -1,0 +1,418 @@
+[
+    {
+        "score": 0.5525868,
+        "show": {
+            "id": 56448,
+            "url": "https://www.tvmaze.com/shows/56448/terminator-the-anime-series",
+            "name": "Terminator: The Anime Series",
+            "type": "Animation",
+            "language": "English",
+            "genres": [
+                "Action",
+                "Anime",
+                "Science-Fiction"
+            ],
+            "status": "In Development",
+            "runtime": null,
+            "averageRuntime": null,
+            "premiered": null,
+            "ended": null,
+            "officialSite": null,
+            "schedule": {
+                "time": "",
+                "days": []
+            },
+            "rating": {
+                "average": null
+            },
+            "weight": 89,
+            "network": null,
+            "webChannel": {
+                "id": 1,
+                "name": "Netflix",
+                "country": null,
+                "officialSite": "https://www.netflix.com/"
+            },
+            "dvdCountry": null,
+            "externals": {
+                "tvrage": null,
+                "thetvdb": 442145,
+                "imdb": "tt14153236"
+            },
+            "image": {
+                "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/486/1216598.jpg",
+                "original": "https://static.tvmaze.com/uploads/images/original_untouched/486/1216598.jpg"
+            },
+            "summary": "<p>A single-minded cyborg sent from the future, known as the Terminator, has been programmed to assassinate Sarah Connor and her unborn son, John, who will one day thwart the malevolent artificial intelligence known as Skynet. </p>",
+            "updated": 1700043722,
+            "_links": {
+                "self": {
+                    "href": "https://api.tvmaze.com/shows/56448"
+                }
+            }
+        }
+    },
+    {
+        "score": 0.51891947,
+        "show": {
+            "id": 478,
+            "url": "https://www.tvmaze.com/shows/478/terminator-the-sarah-connor-chronicles",
+            "name": "Terminator: The Sarah Connor Chronicles",
+            "type": "Scripted",
+            "language": "English",
+            "genres": [
+                "Drama",
+                "Action",
+                "Science-Fiction"
+            ],
+            "status": "Ended",
+            "runtime": 60,
+            "averageRuntime": 60,
+            "premiered": "2008-01-13",
+            "ended": "2009-04-10",
+            "officialSite": null,
+            "schedule": {
+                "time": "20:00",
+                "days": [
+                    "Friday"
+                ]
+            },
+            "rating": {
+                "average": 8.3
+            },
+            "weight": 97,
+            "network": {
+                "id": 4,
+                "name": "FOX",
+                "country": {
+                    "name": "United States",
+                    "code": "US",
+                    "timezone": "America/New_York"
+                },
+                "officialSite": "https://www.fox.com/"
+            },
+            "webChannel": null,
+            "dvdCountry": null,
+            "externals": {
+                "tvrage": 13445,
+                "thetvdb": 80344,
+                "imdb": "tt0851851"
+            },
+            "image": {
+                "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9347.jpg",
+                "original": "https://static.tvmaze.com/uploads/images/original_untouched/3/9347.jpg"
+            },
+            "summary": "<p>The mother of all destiny. Her son, the future leader of mankind. Their protector, a Terminator from the future. Together they must take back the future as Sarah Connor prepares her son to fight the war against machines determined to annihilate the human race. The clock is ticking. Can they stop Judgment Day?</p>",
+            "updated": 1704793949,
+            "_links": {
+                "self": {
+                    "href": "https://api.tvmaze.com/shows/478"
+                },
+                "previousepisode": {
+                    "href": "https://api.tvmaze.com/episodes/43619",
+                    "name": "Born to Run"
+                }
+            }
+        }
+    },
+    {
+        "score": 0.51626545,
+        "show": {
+            "id": 11217,
+            "url": "https://www.tvmaze.com/shows/11217/mysterious-incredible-terminator",
+            "name": "Mysterious Incredible Terminator",
+            "type": "Scripted",
+            "language": "Chinese",
+            "genres": [
+                "Drama",
+                "Action",
+                "Adventure"
+            ],
+            "status": "Ended",
+            "runtime": 70,
+            "averageRuntime": null,
+            "premiered": null,
+            "ended": null,
+            "officialSite": "http://program.ftv.com.tw/Drama/mit/",
+            "schedule": {
+                "time": "22:00",
+                "days": [
+                    "Friday"
+                ]
+            },
+            "rating": {
+                "average": null
+            },
+            "weight": 17,
+            "network": {
+                "id": 463,
+                "name": "FTV",
+                "country": {
+                    "name": "Taiwan, Province of China",
+                    "code": "TW",
+                    "timezone": "Asia/Taipei"
+                },
+                "officialSite": null
+            },
+            "webChannel": null,
+            "dvdCountry": null,
+            "externals": {
+                "tvrage": null,
+                "thetvdb": 250759,
+                "imdb": "tt2230281"
+            },
+            "image": {
+                "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/37/94349.jpg",
+                "original": "https://static.tvmaze.com/uploads/images/original_untouched/37/94349.jpg"
+            },
+            "summary": "<p>The legend of a team called MIT secretly protecting Sheng Ying University was never publicly acknowledged but nonetheless spread wildly among the student body. For some reason, the team had disappeared and evil began to wreck havoc in the school. The last remaining member of MIT, Teacher Cherry, decided to recruit the baddest of all bad students, 007, 187, 747 and Tian Mo Xing, to form a new generation of MIT who would solve the crimes and restore the school to its former glory.</p>",
+            "updated": 1606220822,
+            "_links": {
+                "self": {
+                    "href": "https://api.tvmaze.com/shows/11217"
+                }
+            }
+        }
+    },
+    {
+        "score": 0.506557,
+        "show": {
+            "id": 7047,
+            "url": "https://www.tvmaze.com/shows/7047/terminator-salvation-the-machinima-series",
+            "name": "Terminator Salvation: The Machinima Series",
+            "type": "Animation",
+            "language": "English",
+            "genres": [
+                "Action",
+                "Adventure",
+                "Science-Fiction"
+            ],
+            "status": "Ended",
+            "runtime": 14,
+            "averageRuntime": 14,
+            "premiered": "2009-05-18",
+            "ended": "2009-06-24",
+            "officialSite": null,
+            "schedule": {
+                "time": "",
+                "days": []
+            },
+            "rating": {
+                "average": 6.8
+            },
+            "weight": 72,
+            "network": null,
+            "webChannel": {
+                "id": 8,
+                "name": "Machinima",
+                "country": {
+                    "name": "United States",
+                    "code": "US",
+                    "timezone": "America/New_York"
+                },
+                "officialSite": "https://machinima.com/"
+            },
+            "dvdCountry": null,
+            "externals": {
+                "tvrage": 29036,
+                "thetvdb": 108241,
+                "imdb": "tt1446633"
+            },
+            "image": {
+                "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/402/1006827.jpg",
+                "original": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006827.jpg"
+            },
+            "summary": "<p>In the year 2016, Resistance fighter Blair Williams embarks on a deadly mission to search for a threat that is weakening humanity's defense against the self-aware artificial intelligence called Skynet and their lethal Terminators.</p>",
+            "updated": 1704794654,
+            "_links": {
+                "self": {
+                    "href": "https://api.tvmaze.com/shows/7047"
+                },
+                "previousepisode": {
+                    "href": "https://api.tvmaze.com/episodes/405084",
+                    "name": "Episode 6"
+                }
+            }
+        }
+    },
+    {
+        "score": 0.3959418,
+        "show": {
+            "id": 8001,
+            "url": "https://www.tvmaze.com/shows/8001/determinator",
+            "name": "Determinator",
+            "type": "Scripted",
+            "language": "Polish",
+            "genres": [
+                "Drama",
+                "Crime"
+            ],
+            "status": "Ended",
+            "runtime": 45,
+            "averageRuntime": 45,
+            "premiered": "2008-01-04",
+            "ended": "2008-03-28",
+            "officialSite": null,
+            "schedule": {
+                "time": "",
+                "days": [
+                    "Friday"
+                ]
+            },
+            "rating": {
+                "average": null
+            },
+            "weight": 48,
+            "network": {
+                "id": 336,
+                "name": "TVP1",
+                "country": {
+                    "name": "Poland",
+                    "code": "PL",
+                    "timezone": "Europe/Warsaw"
+                },
+                "officialSite": null
+            },
+            "webChannel": null,
+            "dvdCountry": null,
+            "externals": {
+                "tvrage": null,
+                "thetvdb": 262769,
+                "imdb": "tt1224465"
+            },
+            "image": {
+                "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73018.jpg",
+                "original": "https://static.tvmaze.com/uploads/images/original_untouched/29/73018.jpg"
+            },
+            "summary": null,
+            "updated": 1622032335,
+            "_links": {
+                "self": {
+                    "href": "https://api.tvmaze.com/shows/8001"
+                },
+                "previousepisode": {
+                    "href": "https://api.tvmaze.com/episodes/517812",
+                    "name": "Odcinek 13"
+                }
+            }
+        }
+    },
+    {
+        "score": 0.3492205,
+        "show": {
+            "id": 21471,
+            "url": "https://www.tvmaze.com/shows/21471/verminators",
+            "name": "Verminators",
+            "type": "Documentary",
+            "language": "English",
+            "genres": [],
+            "status": "Ended",
+            "runtime": 60,
+            "averageRuntime": 60,
+            "premiered": "2008-04-21",
+            "ended": "2009-12-07",
+            "officialSite": null,
+            "schedule": {
+                "time": "22:00",
+                "days": [
+                    "Thursday"
+                ]
+            },
+            "rating": {
+                "average": null
+            },
+            "weight": 22,
+            "network": {
+                "id": 66,
+                "name": "Discovery Channel",
+                "country": {
+                    "name": "United States",
+                    "code": "US",
+                    "timezone": "America/New_York"
+                },
+                "officialSite": "https://www.discovery.com/"
+            },
+            "webChannel": null,
+            "dvdCountry": null,
+            "externals": {
+                "tvrage": null,
+                "thetvdb": 101801,
+                "imdb": "tt1221228"
+            },
+            "image": {
+                "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/76/190927.jpg",
+                "original": "https://static.tvmaze.com/uploads/images/original_untouched/76/190927.jpg"
+            },
+            "summary": "<p>Ever wondered what it's like to be an exterminator? Go behind the scenes of the business of busting pests. From roaches, to deadly bees, to rats, and even rare pests, like skunks. These exterminators aren't just any exterminator team, they're the Isotech exterminators, also known as the <i>Verminators</i>.</p>",
+            "updated": 1704794888,
+            "_links": {
+                "self": {
+                    "href": "https://api.tvmaze.com/shows/21471"
+                },
+                "previousepisode": {
+                    "href": "https://api.tvmaze.com/episodes/939672",
+                    "name": "Holy Bees!"
+                }
+            }
+        }
+    },
+    {
+        "score": 0.29057735,
+        "show": {
+            "id": 15351,
+            "url": "https://www.tvmaze.com/shows/15351/billy-the-exterminator",
+            "name": "Billy the Exterminator",
+            "type": "Reality",
+            "language": "English",
+            "genres": [],
+            "status": "Ended",
+            "runtime": 30,
+            "averageRuntime": 30,
+            "premiered": "2009-02-04",
+            "ended": "2017-05-10",
+            "officialSite": "http://www.aetv.com/shows/billy-the-exterminator",
+            "schedule": {
+                "time": "22:00",
+                "days": [
+                    "Wednesday"
+                ]
+            },
+            "rating": {
+                "average": 7.5
+            },
+            "weight": 40,
+            "network": {
+                "id": 29,
+                "name": "A&E",
+                "country": {
+                    "name": "United States",
+                    "code": "US",
+                    "timezone": "America/New_York"
+                },
+                "officialSite": null
+            },
+            "webChannel": null,
+            "dvdCountry": null,
+            "externals": {
+                "tvrage": null,
+                "thetvdb": 166101,
+                "imdb": "tt1395384"
+            },
+            "image": {
+                "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/52/130373.jpg",
+                "original": "https://static.tvmaze.com/uploads/images/original_untouched/52/130373.jpg"
+            },
+            "summary": "<p><b>Billy the Exterminator</b> is an American reality television series which aired on the A&amp;E network. The show followed the professional life of Billy Bretherton, an expert in the field of pest control and the proprietor of Vexcon Animal and Pest Control in Benton, Louisiana, which serves the Shreveport-Bossier metropolitan area.</p>",
+            "updated": 1704793773,
+            "_links": {
+                "self": {
+                    "href": "https://api.tvmaze.com/shows/15351"
+                },
+                "previousepisode": {
+                    "href": "https://api.tvmaze.com/episodes/2160127",
+                    "name": "Horns Up"
+                }
+            }
+        }
+    }
+]

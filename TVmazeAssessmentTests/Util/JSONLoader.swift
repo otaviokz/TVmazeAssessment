@@ -29,6 +29,15 @@ class JSONLoader {
         loadDecodedJson("ShowEpisodesSample")
     }
     
+    static func showSearchContainerSample() -> [ShowContainer] {
+        loadDecodedJson("SampleShowSearchResponse")
+    }
+    
+    static func showSearchSample() -> [Show] {
+        let conatiners: [ShowContainer] = loadDecodedJson("SampleShowSearchResponse")
+        return conatiners.map { $0.show }
+    }
+    
     private static func loadDecodedJson<T: Decodable>(_ fileName: String) -> T {
         var result: T
         do {
