@@ -27,6 +27,7 @@ class ShowSearchViewModel: ObservableObject {
                 }
                 
             } else {
+                shows = []
                 timer?.invalidate()
             }
         }

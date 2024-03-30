@@ -29,5 +29,10 @@ class MockTVmazeAPIClient: TVmazeAPIClientType {
         }
     }
     
+    func fetchShows(page: Int) async throws -> [Show] {
+        page == 0 ? JSONLoader.showSearchSamplePage0() : JSONLoader.showSearchSamplePage1()
+    }
+    
+    
     let defaultShows = JSONLoader.showSearchSample()
 }

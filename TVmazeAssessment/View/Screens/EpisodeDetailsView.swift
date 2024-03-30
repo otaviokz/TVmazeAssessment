@@ -14,7 +14,7 @@ struct EpisodeDetailsView: View {
         VStack {
             ScrollView {
                 VStack(spacing: 12) {
-                    if let url = URL(string: episode.images.original) {
+                    if let url = episode.mediumPosterURL {
                         if let poster = ImageCache.shared[url] {
                             poster
                                 .posterFormat

@@ -10,6 +10,12 @@
 		2B6FC0DC2BB76DE1003BF502 /* SeasonsAndEpisodesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FC0DB2BB76DE1003BF502 /* SeasonsAndEpisodesViewModelTests.swift */; };
 		2B6FC0DE2BB76E5D003BF502 /* XCTExpectation+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FC0DD2BB76E5D003BF502 /* XCTExpectation+Util.swift */; };
 		2B6FC0E02BB76FFC003BF502 /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FC0DF2BB76FFC003BF502 /* MockAPIClient.swift */; };
+		2B6FC0E22BB78258003BF502 /* PagedShowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FC0E12BB78258003BF502 /* PagedShowsView.swift */; };
+		2B6FC0E42BB78279003BF502 /* PagedShowsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FC0E32BB78279003BF502 /* PagedShowsViewModel.swift */; };
+		2B6FC0E62BB783B8003BF502 /* SampleShowsPage0.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B6FC0E52BB783B8003BF502 /* SampleShowsPage0.json */; };
+		2B6FC0E82BB783CE003BF502 /* SampleShowsPage1.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B6FC0E72BB783CE003BF502 /* SampleShowsPage1.json */; };
+		2B6FC0EA2BB78964003BF502 /* PosterHavingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FC0E92BB78964003BF502 /* PosterHavingType.swift */; };
+		2B6FC0ED2BB78BC9003BF502 /* PagedShowsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FC0EC2BB78BC9003BF502 /* PagedShowsViewModelTests.swift */; };
 		2BA981172BB4A1910027CE94 /* TVmazeAssessmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA981162BB4A1910027CE94 /* TVmazeAssessmentApp.swift */; };
 		2BA981192BB4A1910027CE94 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA981182BB4A1910027CE94 /* ContentView.swift */; };
 		2BA9811B2BB4A1910027CE94 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA9811A2BB4A1910027CE94 /* Item.swift */; };
@@ -73,6 +79,12 @@
 		2B6FC0DB2BB76DE1003BF502 /* SeasonsAndEpisodesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsAndEpisodesViewModelTests.swift; sourceTree = "<group>"; };
 		2B6FC0DD2BB76E5D003BF502 /* XCTExpectation+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTExpectation+Util.swift"; sourceTree = "<group>"; };
 		2B6FC0DF2BB76FFC003BF502 /* MockAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
+		2B6FC0E12BB78258003BF502 /* PagedShowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedShowsView.swift; sourceTree = "<group>"; };
+		2B6FC0E32BB78279003BF502 /* PagedShowsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedShowsViewModel.swift; sourceTree = "<group>"; };
+		2B6FC0E52BB783B8003BF502 /* SampleShowsPage0.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleShowsPage0.json; sourceTree = "<group>"; };
+		2B6FC0E72BB783CE003BF502 /* SampleShowsPage1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleShowsPage1.json; sourceTree = "<group>"; };
+		2B6FC0E92BB78964003BF502 /* PosterHavingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterHavingType.swift; sourceTree = "<group>"; };
+		2B6FC0EC2BB78BC9003BF502 /* PagedShowsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedShowsViewModelTests.swift; sourceTree = "<group>"; };
 		2BA981132BB4A1910027CE94 /* TVmazeAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVmazeAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA981162BB4A1910027CE94 /* TVmazeAssessmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVmazeAssessmentApp.swift; sourceTree = "<group>"; };
 		2BA981182BB4A1910027CE94 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -144,6 +156,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B6FC0EB2BB789B2003BF502 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2B6FC0E92BB78964003BF502 /* PosterHavingType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		2BA9810A2BB4A1910027CE94 = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +255,7 @@
 		2BA9814C2BB4A6430027CE94 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2B6FC0EB2BB789B2003BF502 /* Protocols */,
 				2BA9814D2BB4A65F0027CE94 /* Show.swift */,
 				2BA981552BB4B7AE0027CE94 /* Images.swift */,
 				2BA981612BB4C6180027CE94 /* Episode.swift */,
@@ -261,6 +282,8 @@
 				2BA9815F2BB4BE840027CE94 /* SampleShowList.json */,
 				2BA981632BB4C6310027CE94 /* ShowEpisodesSample.json */,
 				2BA981812BB61ED50027CE94 /* SampleShowSearchResponse.json */,
+				2B6FC0E52BB783B8003BF502 /* SampleShowsPage0.json */,
+				2B6FC0E72BB783CE003BF502 /* SampleShowsPage1.json */,
 			);
 			path = Documents;
 			sourceTree = "<group>";
@@ -291,6 +314,7 @@
 			children = (
 				2BA981702BB5FCA30027CE94 /* ShowSearchViewModel.swift */,
 				2BA9818A2BB65A760027CE94 /* SeasonsAndEpisodesViewModel.swift */,
+				2B6FC0E32BB78279003BF502 /* PagedShowsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -307,9 +331,10 @@
 			isa = PBXGroup;
 			children = (
 				2BA981182BB4A1910027CE94 /* ContentView.swift */,
-				2BA9816D2BB5FC570027CE94 /* ShowSearchView.swift */,
-				2BA981882BB659E90027CE94 /* ShowDetailsView.swift */,
 				2BA981932BB67DCB0027CE94 /* EpisodeDetailsView.swift */,
+				2BA981882BB659E90027CE94 /* ShowDetailsView.swift */,
+				2BA9816D2BB5FC570027CE94 /* ShowSearchView.swift */,
+				2B6FC0E12BB78258003BF502 /* PagedShowsView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -317,8 +342,8 @@
 		2BA981762BB60B490027CE94 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				2BA981772BB60B5B0027CE94 /* ShowRowView.swift */,
 				2BA981912BB66C510027CE94 /* EpisodeRowView.swift */,
+				2BA981772BB60B5B0027CE94 /* ShowRowView.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -328,6 +353,7 @@
 			children = (
 				2BA981842BB6241B0027CE94 /* ShowSearchViewModelTests.swift */,
 				2B6FC0DB2BB76DE1003BF502 /* SeasonsAndEpisodesViewModelTests.swift */,
+				2B6FC0EC2BB78BC9003BF502 /* PagedShowsViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -457,6 +483,8 @@
 				2BA981642BB4C6310027CE94 /* ShowEpisodesSample.json in Resources */,
 				2BA981822BB61ED50027CE94 /* SampleShowSearchResponse.json in Resources */,
 				2BA981602BB4BE840027CE94 /* SampleShowList.json in Resources */,
+				2B6FC0E82BB783CE003BF502 /* SampleShowsPage1.json in Resources */,
+				2B6FC0E62BB783B8003BF502 /* SampleShowsPage0.json in Resources */,
 				2BA981542BB4B76C0027CE94 /* SampleShow.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,7 +524,10 @@
 				2BA981682BB5E7AE0027CE94 /* Shedule.swift in Sources */,
 				2BA981622BB4C6180027CE94 /* Episode.swift in Sources */,
 				2BA981962BB684690027CE94 /* Image+Formatting.swift in Sources */,
+				2B6FC0EA2BB78964003BF502 /* PosterHavingType.swift in Sources */,
+				2B6FC0E22BB78258003BF502 /* PagedShowsView.swift in Sources */,
 				2BA981982BB694790027CE94 /* String+RemoveHTMLTags.swift in Sources */,
+				2B6FC0E42BB78279003BF502 /* PagedShowsViewModel.swift in Sources */,
 				2BA981172BB4A1910027CE94 /* TVmazeAssessmentApp.swift in Sources */,
 				2BA9816E2BB5FC570027CE94 /* ShowSearchView.swift in Sources */,
 				2BA981742BB6006B0027CE94 /* String+SearchSanitising.swift in Sources */,
@@ -514,6 +545,7 @@
 				2BA9812A2BB4A1930027CE94 /* TVmazeAssessmentTests.swift in Sources */,
 				2BA9815C2BB4B8690027CE94 /* ShowTests.swift in Sources */,
 				2BA981662BB4C6730027CE94 /* EpisodeTests.swift in Sources */,
+				2B6FC0ED2BB78BC9003BF502 /* PagedShowsViewModelTests.swift in Sources */,
 				2B6FC0DE2BB76E5D003BF502 /* XCTExpectation+Util.swift in Sources */,
 				2BA981592BB4B7F00027CE94 /* JSONLoader.swift in Sources */,
 				2B6FC0DC2BB76DE1003BF502 /* SeasonsAndEpisodesViewModelTests.swift in Sources */,
