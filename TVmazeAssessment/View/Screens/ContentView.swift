@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         TabView {
             NavigationView {
-                
+                PagedShowsView(viewModel: PagedShowsViewModel())
             }.tabItem {
                 Label("Series", systemImage: "tv")
             }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Episode: Codable, Equatable {
+struct Episode: Codable, Equatable, PosterHavingType {
     let id: Int
     let name: String
     let number: Int

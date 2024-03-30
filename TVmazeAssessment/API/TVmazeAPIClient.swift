@@ -15,11 +15,10 @@ enum TVmazeAPIClientError: Error {
 protocol TVmazeAPIClientType {
     func searchShows(query: String) async throws -> [Show]
     func fetchEpisodes(showId: Int) async throws -> [Episode]
+    func fetchShows(page: Int) async throws -> [Show]
 }
 
 class TVmazeAPIClient: TVmazeAPIClientType {
-  
-    
     static var shared = TVmazeAPIClient()
     private let apiKey = "3Xjssgcr6q2W4MKfGhQ5Ut8tqwegAtjj"
     private let baseURL = "https://api.tvmaze.com"
@@ -51,6 +50,24 @@ class TVmazeAPIClient: TVmazeAPIClientType {
         }
         
         baseUrl.append(path: "shows/\(showId)/episodes")
+        do {
+            return try await httpClient
+                .get(baseUrl, headers: ["apiKey": apiKey])
+        } catch {
+            throw TVmazeAPIClientError.http(error)
+        }
+    }
+    
+    func fetchShows(page: Int) async throws -> [Show] {
+        guard var baseUrl = URL(string: baseURL) else {
+            fatalError("baseURL must produce an URL")
+        }
+        baseUrl.append(path: "shows")
+        let queries: [URLQueryItem] = [
+            URLQueryItem(name: "page", value: "\(page)"),
+            URLQueryItem(name: "apiKey", value: apiKey)
+        ]
+        baseUrl.append(queryItems: queries)
         do {
             return try await httpClient
                 .get(baseUrl, headers: ["apiKey": apiKey])

@@ -20,7 +20,7 @@ struct ShowDetailsView: View {
         VStack(alignment: .center) {
             ScrollView {
                 VStack {
-                    if let url = show.originalPosterURL {
+                    if let url = show.mediumPosterURL {
                         if let poster = ImageCache.shared[url] {
                             poster
                                 .posterFormat
