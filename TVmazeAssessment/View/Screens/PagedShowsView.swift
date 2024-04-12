@@ -34,6 +34,8 @@ struct PagedShowsView: View {
                         .fontWeight(.bold)
                         .disabled(viewModel.selectedPage <= 0)
                     Spacer()
+                    Text("\(viewModel.selectedPage)")
+                    Spacer()
                     Button("", systemImage: "arrow.right", action: viewModel.nextPage)
                         .fontWeight(.bold)
                 }

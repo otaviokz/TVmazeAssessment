@@ -26,7 +26,7 @@ struct Show: Codable, PosterHavingType {
         let container = try decoder.container(keyedBy: Show.CodingKeys.self)
         id = try container.decode(Int.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
-        images = try container.decodeIfPresent(Images.self, forKey: .images)
+        images = try? container.decodeIfPresent(Images.self, forKey: .images)
         genres = try container.decode([String].self, forKey: .genres)
         summary = try container.decodeIfPresent(String.self, forKey: .summary)
         schedule = try container.decode(Schedule.self, forKey: .schedule)

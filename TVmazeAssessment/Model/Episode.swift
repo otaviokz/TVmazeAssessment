@@ -28,7 +28,7 @@ struct Episode: Codable, Equatable, PosterHavingType {
         number = try container.decode(Int.self, forKey: .number)
         seasonNumber = try container.decode(Int.self, forKey: .seasonNumber)
         summary = try container.decodeIfPresent(String.self, forKey: .summary)
-        images = try container.decodeIfPresent(Images.self, forKey: .images)
+        images = try? container.decodeIfPresent(Images.self, forKey: .images)
     }
     
     static func == (lhs: Episode, rhs: Episode) -> Bool {
