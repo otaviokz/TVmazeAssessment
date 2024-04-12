@@ -8,17 +8,19 @@
 import Foundation
 
 protocol PosterHavingType {
-    var images: Images { get }
+    var images: Images? { get }
     var mediumPosterURL: URL? { get }
     var originalPosterURL: URL? { get }
 }
 
 extension PosterHavingType {
     var mediumPosterURL: URL? {
-        URL(string: images.medium)
+        guard let medium = images?.medium else { return nil }
+        return URL(string: medium)
     }
     
     var originalPosterURL: URL? {
-        URL(string: images.original)
+        guard let original = images?.original else { return nil }
+        return URL(string: original)
     }
 }

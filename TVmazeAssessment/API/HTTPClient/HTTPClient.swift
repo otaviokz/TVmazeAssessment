@@ -39,6 +39,7 @@ private extension HTTPClient {
         do {
             return try JSONDecoder().decode(T.self, from: data)
         } catch {
+            print(data)
             throw HTTPClientError.decode(error)
         }
     }

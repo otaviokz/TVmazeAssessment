@@ -13,7 +13,7 @@ struct Episode: Codable, Equatable, PosterHavingType {
     let number: Int
     let seasonNumber: Int
     let summary: String?
-    let images: Images
+    let images: Images?
     
     enum CodingKeys: String, CodingKey {
         case id, name, number, summary
@@ -28,7 +28,7 @@ struct Episode: Codable, Equatable, PosterHavingType {
         number = try container.decode(Int.self, forKey: .number)
         seasonNumber = try container.decode(Int.self, forKey: .seasonNumber)
         summary = try container.decodeIfPresent(String.self, forKey: .summary)
-        images = try container.decode(Images.self, forKey: .images)
+        images = try container.decodeIfPresent(Images.self, forKey: .images)
     }
     
     static func == (lhs: Episode, rhs: Episode) -> Bool {

@@ -56,6 +56,7 @@ class PagedShowsViewModel: ObservableObject {
             isLoading = false
             showErrorMessage = true
             errorMessage = "Unable to load shows, please try again later."
+            selectedPage -= 1
         }
     }
 }

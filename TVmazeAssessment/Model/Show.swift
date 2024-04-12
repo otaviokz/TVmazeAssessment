@@ -10,7 +10,7 @@ import Foundation
 struct Show: Codable, PosterHavingType {
     let id: Int
     let name: String
-    let images: Images
+    let images: Images?
     let genres: [String]
     let summary: String?
     let schedule: Schedule
@@ -26,7 +26,7 @@ struct Show: Codable, PosterHavingType {
         let container = try decoder.container(keyedBy: Show.CodingKeys.self)
         id = try container.decode(Int.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
-        images = try container.decode(Images.self, forKey: .images)
+        images = try container.decodeIfPresent(Images.self, forKey: .images)
         genres = try container.decode([String].self, forKey: .genres)
         summary = try container.decodeIfPresent(String.self, forKey: .summary)
         schedule = try container.decode(Schedule.self, forKey: .schedule)
