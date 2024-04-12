@@ -16,7 +16,7 @@ struct ContentView: View {
             NavigationView {
                 PagedShowsView(viewModel: PagedShowsViewModel())
             }.tabItem {
-                Label("Series", systemImage: "tv")
+                Label("All shows", systemImage: "tv")
             }
             
             NavigationView {

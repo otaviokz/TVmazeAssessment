@@ -39,23 +39,28 @@ struct ShowDetailsView: View {
                     Spacer()
                         .frame(height: 16)
                     if !show.schedule.days.isEmpty {
-                        LabeledContent("Airing days:", value: show.schedule.days.joined(separator: ","))
+                        LabeledContent("Airing days:", value: show.schedule.days.joined(separator: ", "))
                             .padding(.bottom, 8)
                     }
                     if !show.schedule.time.isEmpty {
                         LabeledContent("Air time:", value: show.schedule.time)
                             .padding(.bottom, 8)
                     }
-                    LabeledContent("Genres", value: show.genres.joined(separator: ","))
+                    LabeledContent("Genres", value: show.genres.joined(separator: ", "))
+                        .padding(.bottom, 8)
                     if let summary = show.summary?.removingHTMLTags {
                         LabeledContent("Summary:", value: summary)
                             .padding(.bottom, 8)
                     }
-                }
-                VStack {
+
                     if viewModel.isLoading {
-                        ProgressView()
-                            .controlSize(.extraLarge)
+                        if #available(iOS 17.0, *) {
+                            ProgressView()
+                                .controlSize(.extraLarge)
+                        } else {
+                            ProgressView()
+                                .controlSize(.large)
+                        }
                     } else {
                         Divider()
                         ForEach(viewModel.seasons, id: \.number) { season in
@@ -75,7 +80,7 @@ struct ShowDetailsView: View {
                                         EpisodeDetailsView(episode: episode)
                                     }, label: {
                                         EpisodeRowView(episode: episode)
-                                    }) 
+                                    })
                                 }
                             }
                         }
@@ -83,11 +88,12 @@ struct ShowDetailsView: View {
                 }
             }
         }
-        .navigationTitle(show.name)
-        .padding(.horizontal, 16)
         .onAppear {
             viewModel.fetchShowEpisodes(showId: show.id)
         }
+        .navigationTitle(show.name)
+        .padding(.horizontal, 16)
+        
     }
     
     func headerFor(season: Season) -> some View {

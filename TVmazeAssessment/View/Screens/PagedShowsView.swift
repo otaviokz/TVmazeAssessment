@@ -12,12 +12,18 @@ struct PagedShowsView: View {
     
     
     
+    
     var body: some View {
         VStack {
             if viewModel.isLoading {
                 Spacer()
-                ProgressView()
-                    .controlSize(.extraLarge)
+                if #available(iOS 17.0, *) {
+                    ProgressView()
+                        .controlSize(.extraLarge)
+                } else {
+                    ProgressView()
+                        .controlSize(.large)
+                }
                 Spacer()
             } else {
                 List {

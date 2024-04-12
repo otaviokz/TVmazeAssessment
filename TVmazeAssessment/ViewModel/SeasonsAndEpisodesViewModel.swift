@@ -11,13 +11,12 @@ import SwiftUI
 class SeasonsAndEpisodesViewModel: ObservableObject {
     private let api: TVmazeAPIClientType
     @Published var seasons: [Season] = []
+    @Published var isLoading: Bool = false
+    @Published var series: [Season] = []
     
     init(api: TVmazeAPIClientType = TVmazeAPIClient.shared) {
         self.api = api
     }
-    
-    @Published var isLoading: Bool = false
-    @Published var series: [Season] = []
     
     func fetchShowEpisodes(showId: Int) {
         Task {

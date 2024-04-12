@@ -34,10 +34,13 @@ class TVmazeAPIClient: TVmazeAPIClientType {
             fatalError("baseURL must produce an URL")
         }
         baseUrl.append(path: searchEndpoint)
-        baseUrl.append(queryItems: [URLQueryItem(name: "q", value: query)])
+        baseUrl.append(queryItems: [
+            URLQueryItem(name: "q", value: query),
+            URLQueryItem(name: "apiKey", value: apiKey)
+        ])
         do {
             let containers: [ShowContainer] = try await httpClient
-                .get(baseUrl, headers: ["apiKey": apiKey])
+                .get(baseUrl, headers: nil/*["apiKey": apiKey]*/)
             return containers.map { $0.show }
         } catch {
             throw TVmazeAPIClientError.http(error)
@@ -48,11 +51,11 @@ class TVmazeAPIClient: TVmazeAPIClientType {
         guard var baseUrl = URL(string: baseURL) else {
             fatalError("baseURL must produce an URL")
         }
-        
         baseUrl.append(path: "shows/\(showId)/episodes")
+        baseUrl.append(queryItems: [URLQueryItem(name: "apiKey", value: apiKey)])
         do {
             return try await httpClient
-                .get(baseUrl, headers: ["apiKey": apiKey])
+                .get(baseUrl, headers: nil/*["apiKey": apiKey]*/)
         } catch {
             throw TVmazeAPIClientError.http(error)
         }
@@ -63,29 +66,15 @@ class TVmazeAPIClient: TVmazeAPIClientType {
             fatalError("baseURL must produce an URL")
         }
         baseUrl.append(path: "shows")
-        let queries: [URLQueryItem] = [
+        baseUrl.append(queryItems: [
             URLQueryItem(name: "page", value: "\(page)"),
             URLQueryItem(name: "apiKey", value: apiKey)
-        ]
-        baseUrl.append(queryItems: queries)
+        ])
         do {
             return try await httpClient
-                .get(baseUrl, headers: ["apiKey": apiKey])
+                .get(baseUrl, headers: nil/*["apiKey": apiKey]*/)
         } catch {
             throw TVmazeAPIClientError.http(error)
         }
     }
-}
-
-extension TVmazeAPIClient {
-    private var showsEndpoint: String { "shows" }
-    
-    func fetchShows() async throws -> [Show] {
-        guard var showsURL = URL(string: baseURL) else {
-            fatalError("baseURL must produce an URL")
-        }
-        showsURL.append(path: showsEndpoint)
-        return try await httpClient.get(showsURL, headers: ["apiKey": apiKey])
-    }
-    
 }

@@ -9,20 +9,23 @@ import SwiftUI
 
 struct ShowSearchView: View {
     @ObservedObject var viewModel: ShowSearchViewModel
-    @FocusState private var fieldFocus: FieldFocus?
     
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
             if viewModel.isLoading {
                 Spacer()
-                ProgressView()
-                    .controlSize(.extraLarge)
+                if #available(iOS 17.0, *) {
+                    ProgressView()
+                        .controlSize(.extraLarge)
+                } else {
+                    ProgressView()
+                        .controlSize(.large)
+                }
                 Spacer()
             } else {
                 TextField("Type at least 2 letters", text: $viewModel.searchText)
                     .textFieldStyle(.roundedBorder)
                     .frame(height: 32)
-                    .focused($fieldFocus, equals: .searchTextField)
                     .padding(.top, 12)
                     .padding(.horizontal, 16)
                 
@@ -39,7 +42,6 @@ struct ShowSearchView: View {
                     .scrollIndicators(.hidden)
                     .cornerRadius(16)
                 }
-                
             }
         }
         .alert(viewModel.errorMessage, isPresented: $viewModel.showErrorMessage) {
@@ -47,16 +49,7 @@ struct ShowSearchView: View {
                 viewModel.showErrorMessage = false
             }
         }
-        .onAppear {
-            fieldFocus = .searchTextField
-        }
         .navigationTitle("Search")
-    }
-}
-
-private extension ShowSearchView {
-    enum FieldFocus: Hashable {
-        case searchTextField
     }
 }
 
