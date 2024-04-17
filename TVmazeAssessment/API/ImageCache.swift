@@ -14,8 +14,6 @@ class ImageCache {
     
     private init() { }
     
-    
-    
     @MainActor
     subscript(url: URL) -> Image? {
         get {

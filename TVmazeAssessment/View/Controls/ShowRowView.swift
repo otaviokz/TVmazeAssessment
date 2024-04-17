@@ -16,40 +16,37 @@ struct ShowRowView: View {
                 .font(.headline)
             Spacer()
             if let url = show.mediumPosterURL {
-                    if let poster = ImageCache.shared[url] {
-                        poster
-                            .resizable()
-                            .scaledToFit()
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                    } else {
-                        AsyncImage(url: url) { phase in
-                            switch phase {
-                                case .success(let image):
-                                    cacheImage(url: url, image: image)
-                                        .resizable()
-                                default:
-                                    Image(systemName: "photo")
-                                        .resizable()
-                            }
+                if let image = ImageCache.shared[url] {
+                    image
+                        .formattedForShowRowView()
+                } else {
+                    AsyncImage(url: url) { phase in
+                        switch phase {
+                            case .success(let image):
+                                cacheAndReturnImage(url: url, image: image)
+                                    .formattedForShowRowView()
+                            default:
+                                Image(systemName: "photo")
+                                    .formattedForShowRowView()
                         }
-                        .scaledToFit()
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
                     }
                 }
+            }
         }
-        .frame(height: 80)
-        .padding()
+        .frame(height: 82)
+        .padding(.horizontal)
+        .padding(.vertical, 4)
     }
     
-    @MainActor func cacheImage(url: URL, image: Image) -> Image {
+    @MainActor func cacheAndReturnImage(url: URL, image: Image) -> Image {
         ImageCache.shared[url] = image
         return image
     }
 }
 
-
-
 #Preview {
     ShowRowView(show: Show())
         .previewLayout(.sizeThatFits)
 }
+
+

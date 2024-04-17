@@ -21,8 +21,8 @@ final class ShowTests: XCTestCase {
         // THEN
         XCTAssertEqual(show.id, 1)
         XCTAssertEqual(show.name, "Under the Dome")
-        XCTAssertEqual(show.images.medium, "https://static.tvmaze.com/uploads/images/medium_portrait/81/202627.jpg")
-        XCTAssertEqual(show.images.original, "https://static.tvmaze.com/uploads/images/original_untouched/81/202627.jpg")
+        XCTAssertEqual(show.images?.medium, "https://static.tvmaze.com/uploads/images/medium_portrait/81/202627.jpg")
+        XCTAssertEqual(show.images?.original, "https://static.tvmaze.com/uploads/images/original_untouched/81/202627.jpg")
         XCTAssertEqual(show.genres, ["Drama", "Science-Fiction", "Thriller"])
         XCTAssertEqual(show.premiered, "2013-06-24")
         XCTAssertEqual(show.ended, "2015-09-10")
@@ -45,8 +45,8 @@ final class ShowTests: XCTestCase {
         // THEN
         XCTAssertEqual(show5.id, 5)
         XCTAssertEqual(show5.name, "True Detective")
-        XCTAssertEqual(show5.images.medium, "https://static.tvmaze.com/uploads/images/medium_portrait/490/1226764.jpg")
-        XCTAssertEqual(show5.images.original, "https://static.tvmaze.com/uploads/images/original_untouched/490/1226764.jpg")
+        XCTAssertEqual(show5.images?.medium, "https://static.tvmaze.com/uploads/images/medium_portrait/490/1226764.jpg")
+        XCTAssertEqual(show5.images?.original, "https://static.tvmaze.com/uploads/images/original_untouched/490/1226764.jpg")
         XCTAssertEqual(show5.schedule.time, "21:00")
         XCTAssertEqual(show5.schedule.days, ["Sunday"])
         XCTAssertEqual(show5.premiered, "2014-01-12")
@@ -59,8 +59,8 @@ final class ShowTests: XCTestCase {
         // THEN
         XCTAssertEqual(show240.id, 249)
         XCTAssertEqual(show240.name, "The Daily Show with Jon Stewart")
-        XCTAssertEqual(show240.images.medium, "https://static.tvmaze.com/uploads/images/medium_portrait/327/818871.jpg")
-        XCTAssertEqual(show240.images.original, "https://static.tvmaze.com/uploads/images/original_untouched/327/818871.jpg")
+        XCTAssertEqual(show240.images?.medium, "https://static.tvmaze.com/uploads/images/medium_portrait/327/818871.jpg")
+        XCTAssertEqual(show240.images?.original, "https://static.tvmaze.com/uploads/images/original_untouched/327/818871.jpg")
         XCTAssertEqual(show240.schedule.time, "23:00")
         XCTAssertEqual(show240.schedule.days, ["Monday", "Tuesday", "Wednesday", "Thursday"])
         XCTAssertEqual(show240.premiered, "1999-01-11")

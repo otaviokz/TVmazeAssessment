@@ -55,6 +55,7 @@
 		2BA981942BB67DCB0027CE94 /* EpisodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA981932BB67DCB0027CE94 /* EpisodeDetailsView.swift */; };
 		2BA981962BB684690027CE94 /* Image+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA981952BB684690027CE94 /* Image+Formatting.swift */; };
 		2BA981982BB694790027CE94 /* String+RemoveHTMLTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA981972BB694790027CE94 /* String+RemoveHTMLTags.swift */; };
+		2BBC5C892BD01446009AA598 /* View+ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC5C882BD01446009AA598 /* View+ProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		2BA981952BB684690027CE94 /* Image+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Formatting.swift"; sourceTree = "<group>"; };
 		2BA981972BB694790027CE94 /* String+RemoveHTMLTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveHTMLTags.swift"; sourceTree = "<group>"; };
 		2BA981992BB69AC50027CE94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2BBC5C882BD01446009AA598 /* View+ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ProgressView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +268,7 @@
 		2BA9814F2BB4B3A30027CE94 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2BBC5C872BD01430009AA598 /* Utils */,
 				2BA981762BB60B490027CE94 /* Controls */,
 				2BA981752BB60B3B0027CE94 /* Screens */,
 			);
@@ -362,6 +365,14 @@
 				2BA981972BB694790027CE94 /* String+RemoveHTMLTags.swift */,
 			);
 			path = Styling;
+			sourceTree = "<group>";
+		};
+		2BBC5C872BD01430009AA598 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2BBC5C882BD01446009AA598 /* View+ProgressView.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -512,6 +523,7 @@
 				2BA9816A2BB5EEAE0027CE94 /* Season.swift in Sources */,
 				2BA981452BB4A4AA0027CE94 /* Request+Utils.swift in Sources */,
 				2BA981892BB659E90027CE94 /* ShowDetailsView.swift in Sources */,
+				2BBC5C892BD01446009AA598 /* View+ProgressView.swift in Sources */,
 				2BA981942BB67DCB0027CE94 /* EpisodeDetailsView.swift in Sources */,
 				2BA981492BB4A4F80027CE94 /* HTTPClientError.swift in Sources */,
 				2BA9814B2BB4A5A50027CE94 /* TVmazeAPIClient.swift in Sources */,

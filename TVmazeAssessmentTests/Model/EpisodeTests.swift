@@ -32,8 +32,8 @@ final class EpisodeTests: XCTestCase {
         XCTAssertEqual(e04s01.number, 4)
         XCTAssertEqual(e04s01.seasonNumber, 1)
         XCTAssertEqual(e04s01.seasonNumber, 1)
-        XCTAssertEqual(e04s01.images.medium, "https://static.tvmaze.com/uploads/images/medium_landscape/1/4391.jpg")
-        XCTAssertEqual(e04s01.images.original, "https://static.tvmaze.com/uploads/images/original_untouched/1/4391.jpg")
+        XCTAssertEqual(e04s01.images?.medium, "https://static.tvmaze.com/uploads/images/medium_landscape/1/4391.jpg")
+        XCTAssertEqual(e04s01.images?.original, "https://static.tvmaze.com/uploads/images/original_untouched/1/4391.jpg")
         XCTAssertEqual(e04s01.summary, "<p>The people of Chester's Mill fall into a state of panic as an outbreak of meningitis strikes their community, threatening their already depleted medical supplies. Meanwhile, Julia continues to search for answers into her husband's disappearance.</p>")
         
         let e13s03 = episodes[38]
@@ -41,8 +41,8 @@ final class EpisodeTests: XCTestCase {
         XCTAssertEqual(e13s03.name, "The Enemy Within")
         XCTAssertEqual(e13s03.number, 13)
         XCTAssertEqual(e13s03.seasonNumber, 3)
-        XCTAssertEqual(e13s03.images.medium, "https://static.tvmaze.com/uploads/images/medium_landscape/17/43622.jpg")
-        XCTAssertEqual(e13s03.images.original, "https://static.tvmaze.com/uploads/images/original_untouched/17/43622.jpg")
+        XCTAssertEqual(e13s03.images?.medium, "https://static.tvmaze.com/uploads/images/medium_landscape/17/43622.jpg")
+        XCTAssertEqual(e13s03.images?.original, "https://static.tvmaze.com/uploads/images/original_untouched/17/43622.jpg")
         XCTAssertEqual(e13s03.summary,
                        "<p>As the Dome in Chester's Mill comes down, the Resistance makes a final attempt to protect the outside world from the infected townspeople in the Kinship and their new queen.</p>")
     }

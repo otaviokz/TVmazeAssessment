@@ -14,13 +14,7 @@ struct ShowSearchView: View {
         VStack(alignment: .center, spacing: 16) {
             if viewModel.isLoading {
                 Spacer()
-                if #available(iOS 17.0, *) {
-                    ProgressView()
-                        .controlSize(.extraLarge)
-                } else {
-                    ProgressView()
-                        .controlSize(.large)
-                }
+                buildProgressView()
                 Spacer()
             } else {
                 TextField("Type at least 2 letters", text: $viewModel.searchText)
@@ -39,6 +33,7 @@ struct ShowSearchView: View {
                             })
                         }
                     }
+                    .listStyle(InsetGroupedListStyle())
                     .scrollIndicators(.hidden)
                     .cornerRadius(16)
                 }
