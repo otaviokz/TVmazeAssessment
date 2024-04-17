@@ -85,7 +85,6 @@ struct ShowDetailsView: View {
                                     withAnimation {
                                         if selectedSeason == season.number {
                                             selectedSeason = 0
-                                            scrollReader.scrollTo(1, anchor: .top)
                                         } else {
                                             selectedSeason = season.number
                                             scrollReader.scrollTo(selectedSeason, anchor: .top)
