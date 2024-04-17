@@ -12,8 +12,8 @@ class PagedShowsViewModel: ObservableObject {
     private let api: TVmazeAPIClientType
     @Published var isLoading: Bool = false
     @Published var shows: [Show] = []
-    var showErrorMessage: Bool = false
-    var errorMessage: String = ""
+    @Published var showErrorMessage: Bool = false
+    @Published var errorMessage: String = ""
     private(set) var selectedPage = 0
     
     init(api: TVmazeAPIClientType = TVmazeAPIClient.shared) {

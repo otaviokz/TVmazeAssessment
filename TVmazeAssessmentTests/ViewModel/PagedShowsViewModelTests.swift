@@ -41,19 +41,13 @@ final class PagedShowsViewModelTests: XCTestCase {
         sut.viewDidAppear()
         
         
-        // GIVEN
-        _ = blockExpectation {
-            // THEN sut shouldn't fetch 'previous' page when current page == 0
-            sut.shows == JSONLoader.showSearchSamplePage0()
-        }
-        
         // WHEN
         sut.previousPage()
         
         // GIVEN
         _ = blockExpectation {
             // THEN sut shouldn fetc 'next' page
-            sut.shows == JSONLoader.showSearchSamplePage1()
+            sut.shows == JSONLoader.showSearchSamplePage0()
         }
         
         // WHEN

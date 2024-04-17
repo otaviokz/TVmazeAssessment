@@ -10,20 +10,11 @@ import SwiftUI
 struct PagedShowsView: View {
     @ObservedObject var viewModel: PagedShowsViewModel
     
-    
-    
-    
     var body: some View {
         VStack {
             if viewModel.isLoading {
                 Spacer()
-                if #available(iOS 17.0, *) {
-                    ProgressView()
-                        .controlSize(.extraLarge)
-                } else {
-                    ProgressView()
-                        .controlSize(.large)
-                }
+                buildProgressView()
                 Spacer()
             } else {
                 List {
@@ -35,12 +26,14 @@ struct PagedShowsView: View {
                         })
                     }
                 }
+                .listStyle(InsetGroupedListStyle())
+                
                 HStack(alignment: .center) {
                     Button("", systemImage: "arrow.left", action: viewModel.previousPage)
                         .fontWeight(.bold)
                         .disabled(viewModel.selectedPage <= 0)
                     Spacer()
-                    Text("\(viewModel.selectedPage)")
+                    Text("\(viewModel.selectedPage + 1)")
                     Spacer()
                     Button("", systemImage: "arrow.right", action: viewModel.nextPage)
                         .fontWeight(.bold)

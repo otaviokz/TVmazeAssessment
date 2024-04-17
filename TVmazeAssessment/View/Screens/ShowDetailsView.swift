@@ -22,13 +22,12 @@ struct ShowDetailsView: View {
                 VStack {
                     if let url = show.mediumPosterURL {
                         if let poster = ImageCache.shared[url] {
-                            poster
-                                .posterFormat
+                            poster.posterFormat
                         } else {
                             AsyncImage(url: url) { phase in
                                 switch phase {
                                     case .success(let image):
-                                        image.cacheImage(url: url)
+                                        image.cacheImage(url: url).posterFormat
                                     default:
                                         Image(systemName: "photo").posterFormat
                                 }
@@ -36,67 +35,73 @@ struct ShowDetailsView: View {
                         }
                     }
                     
-                    Spacer()
-                        .frame(height: 16)
+                    Spacer().frame(height: 16)
+                    
                     if !show.schedule.days.isEmpty {
                         LabeledContent("Airing days:", value: show.schedule.days.joined(separator: ", "))
                             .padding(.bottom, 8)
                     }
+                    
                     if !show.schedule.time.isEmpty {
                         LabeledContent("Air time:", value: show.schedule.time)
                             .padding(.bottom, 8)
                     }
+                    
                     LabeledContent("Genres", value: show.genres.joined(separator: ", "))
                         .padding(.bottom, 8)
+                    
                     if let summary = show.summary?.removingHTMLTags {
                         LabeledContent("Summary:", value: summary)
                             .padding(.bottom, 8)
                     }
-
+                    
                     if viewModel.isLoading {
-                        if #available(iOS 17.0, *) {
-                            ProgressView()
-                                .controlSize(.extraLarge)
-                        } else {
-                            ProgressView()
-                                .controlSize(.large)
-                        }
+                        buildProgressView()
                     } else {
                         Divider()
                         ForEach(viewModel.seasons, id: \.number) { season in
-                            headerFor(season: season)
-                                .onTapGesture {
-                                    withAnimation {
-                                        if selectedSeason == season.number {
-                                            selectedSeason = 0
-                                        } else {
-                                            selectedSeason = season.number
-                                        }
-                                    }
-                                }
-                            if selectedSeason == season.number {
-                                ForEach(season.episodes, id: \.id) { episode in
-                                    NavigationLink(destination: {
-                                        EpisodeDetailsView(episode: episode)
-                                    }, label: {
-                                        EpisodeRowView(episode: episode)
-                                    })
-                                }
-                            }
+                            buildView(for: season)
                         }
+                        Spacer().frame(height: 24)
                     }
                 }
             }
+            .onAppear {
+                viewModel.fetchShowEpisodes(showId: show.id)
+            }
+            .navigationTitle(show.name)
+            .padding(.horizontal, 16)
         }
-        .onAppear {
-            viewModel.fetchShowEpisodes(showId: show.id)
-        }
-        .navigationTitle(show.name)
-        .padding(.horizontal, 16)
         
     }
+}
+
+private extension ShowDetailsView {
+    func buildView(for season: Season) -> some View {
+        VStack {
+            buildHeader(for: season)
+                .onTapGesture {
+                    withAnimation {
+                        if selectedSeason == season.number {
+                            selectedSeason = 0
+                        } else {
+                            selectedSeason = season.number
+                        }
+                    }
+                }
+            if selectedSeason == season.number {
+                ForEach(season.episodes, id: \.id) { episode in
+                    NavigationLink(destination: {
+                        EpisodeDetailsView(episode: episode)
+                    }, label: {
+                        EpisodeRowView(episode: episode)
+                    })
+                }
+            }
+        }
+    }
     
-    func headerFor(season: Season) -> some View {
+    func buildHeader(for season: Season) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             Spacer()
             HStack(spacing: 0) {
@@ -119,7 +124,6 @@ struct ShowDetailsView: View {
         .frame(height: 40)
     }
 }
-
 
 #Preview {
     ShowDetailsView(show: Show())
