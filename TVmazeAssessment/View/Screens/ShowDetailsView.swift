@@ -11,6 +11,7 @@ struct ShowDetailsView: View {
     @ObservedObject var viewModel: SeasonsAndEpisodesViewModel
     private let show: Show
     @State private var selectedSeason: Int = 0
+    @State private var didFetchEpisodes: Bool = false
     init(show: Show, viewModel: SeasonsAndEpisodesViewModel = SeasonsAndEpisodesViewModel()) {
         self.show = show
         self.viewModel = viewModel
@@ -21,7 +22,7 @@ struct ShowDetailsView: View {
             ScrollViewReader { scrollReader in
                 ScrollView {
                     VStack {
-                        if let url = show.mediumPosterURL {
+                        if let url = show.originalPosterURL {
                             if let poster = ImageCache.shared[url] {
                                 poster.posterFormat
                             } else {
@@ -36,53 +37,62 @@ struct ShowDetailsView: View {
                             }
                         }
                         
-                        Spacer().frame(height: 16)
-                        
+                        Spacer().frame(height: 24)
                         if !show.schedule.days.isEmpty {
-                            LabeledContent("Airing days:", value: show.schedule.days.joined(separator: ", "))
+                            LabeledText(content: "Airing days:", value: show.schedule.days.joined(separator: ", "))
                                 .padding(.bottom, 8)
+                            Divider()
                         }
                         
                         if !show.schedule.time.isEmpty {
-                            LabeledContent("Air time:", value: show.schedule.time)
+                            LabeledText(content: "Air time:", value: show.schedule.time)
                                 .padding(.bottom, 8)
+                            Divider()
                         }
                         
-                        LabeledContent("Genres", value: show.genres.joined(separator: ", "))
+                        LabeledText(content: "Genres:", value: show.genres.joined(separator: ", "))
                             .padding(.bottom, 8)
+                        Divider()
                         
                         if let summary = show.summary?.removingHTMLTags {
-                            LabeledContent("Summary:", value: summary)
-                                .padding(.bottom, 8)
+                            VStack(alignment: .leading) {
+                                SummaryView(summary: summary)
+                                Spacer().frame(height: 24)
+                                Divider()
+                            }
                         }
                         
                         if viewModel.isLoading {
                             buildProgressView()
                         } else {
-                            Divider()
                             ForEach(viewModel.seasons, id: \.number) { season in
                                 VStack(alignment: .leading, spacing: 0) {
                                     Spacer()
-                                    HStack(spacing: 0) {
-                                        Text("Season \(season.number)")
-                                            .font(.title2)
-                                            .fontWeight(selectedSeason == season.number ? .bold : .regular)
-                                        Spacer()
-                                        Text("\(season.episodes.count) episodes")
+                                    HStack {
+                                        LabeledText(content: "Season \(season.number)", value: "\(season.episodes.count) episodes")
                                             .padding(.trailing, 4)
-                                        if season.number == selectedSeason {
-                                            Image(systemName: "arrow.down")
-                                        } else {
-                                            Image(systemName: "arrow.right")
-                                        }
-                                    }.frame(height: 30)
-                                    Spacer()
-                                    Divider()
+                                        Spacer()
+                                        Image(systemName: "arrow.right")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 20, height: 20)
+                                            .fontWeight(.bold)
+                                            .rotationEffect(
+                                                Angle(degrees: season.number == selectedSeason ? 90 : 0)
+                                            )
+                                            .foregroundColor(.blue)
+                                        
+                                        
+                                    }
+                                    .frame(height: 50)
+                                    Rectangle()
+                                        .frame(maxWidth: .infinity)
+                                        .frame(height: 0.75)
+                                        .foregroundColor(.gray)
                                 }
-                                .frame(height: 40)
                                 .id(season.number)
                                 .onTapGesture {
-                                    withAnimation {
+                                    withAnimation(.easeOut) {
                                         if selectedSeason == season.number {
                                             selectedSeason = 0
                                         } else {
@@ -90,6 +100,7 @@ struct ShowDetailsView: View {
                                             scrollReader.scrollTo(selectedSeason, anchor: .top)
                                         }
                                     }
+                                    
                                 }
                                 
                                 if selectedSeason == season.number {
@@ -105,18 +116,24 @@ struct ShowDetailsView: View {
                             Spacer().frame(height: 24)
                         }
                     }
+                    .padding(.horizontal, 16)
                 }
+                .scrollIndicators(.hidden)
                 .onAppear {
-                    viewModel.fetchShowEpisodes(showId: show.id)
+                    if !didFetchEpisodes {
+                        didFetchEpisodes = true
+                        viewModel.fetchShowEpisodes(showId: show.id)
+                    }
                 }
                 .navigationTitle(show.name)
                 .padding(.horizontal, 16)
             }
         }
-        
     }
 }
 
 #Preview {
-    ShowDetailsView(show: Show())
+    NavigationView {
+        ShowDetailsView(show: Show())
+    }
 }

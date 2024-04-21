@@ -18,6 +18,7 @@ struct ShowSearchView: View {
                 Spacer()
             } else {
                 TextField("Type at least 2 letters", text: $viewModel.searchText)
+                    .font(.title2)
                     .textFieldStyle(.roundedBorder)
                     .frame(height: 32)
                     .padding(.top, 12)

@@ -8,6 +8,12 @@
 import Foundation
 import SwiftUI
 
+enum PageChange {
+    case next
+    case previous
+    case same
+}
+
 class PagedShowsViewModel: ObservableObject {
     private let api: TVmazeAPIClientType
     @Published var isLoading: Bool = false
@@ -21,41 +27,49 @@ class PagedShowsViewModel: ObservableObject {
     }
     
     func nextPage() {
-        selectedPage += 1
-        searchForCurrentPage()
+        
+        searchForPageWith(change: .next)
     }
     
     func previousPage() {
         guard selectedPage > 0 else { return }
-        selectedPage -= 1
-        searchForCurrentPage()
+        searchForPageWith(change: .previous)
     }
     
-    func viewDidAppear() {
+    func onViewAppear() {
         if shows.isEmpty {
-            selectedPage = 0
-            searchForCurrentPage()
+            searchForPageWith(change: .same)
         }
     }
     
-    private func searchForCurrentPage() {
+    private func searchForPageWith(change: PageChange) {
         Task {
-            await searchShows()
+            await searchShows(change: change)
         }
     }
     
     @MainActor
-    private func searchShows() async {
+    private func searchShows(change pageChange: PageChange) async {
+        switch pageChange {
+            case .next: selectedPage += 1
+            case.previous: selectedPage -= 1
+            case .same: break
+        }
         showErrorMessage = false
         isLoading = true
         do {
             shows = try await api.fetchShows(page: selectedPage)
             isLoading = false
         } catch {
+            switch pageChange {
+                case .next: selectedPage -= 1
+                case .previous: selectedPage += 1
+                case .same: break
+            }
             print(error.localizedDescription)
             isLoading = false
-            showErrorMessage = true
             errorMessage = "Unable to load shows, please try again later."
+            showErrorMessage = true
         }
     }
 }

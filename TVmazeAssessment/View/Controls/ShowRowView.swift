@@ -18,16 +18,17 @@ struct ShowRowView: View {
             if let url = show.mediumPosterURL {
                 if let image = ImageCache.shared[url] {
                     image
-                        .formattedForShowRowView()
+                        .rowViewFormatted
                 } else {
                     AsyncImage(url: url) { phase in
                         switch phase {
-                            case .success(let image):
-                                cacheAndReturnImage(url: url, image: image)
-                                    .formattedForShowRowView()
-                            default:
-                                Image(systemName: "photo")
-                                    .formattedForShowRowView()
+                        case .success(let image):
+                            cacheAndReturnImage(url: url, image: image)
+                                .rowViewFormatted
+                        default:
+                            Image(systemName: "photo")
+                                .rowViewFormatted
+                                .scaledToFit()
                         }
                     }
                 }
