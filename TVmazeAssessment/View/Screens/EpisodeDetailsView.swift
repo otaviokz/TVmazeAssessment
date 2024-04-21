@@ -14,36 +14,49 @@ struct EpisodeDetailsView: View {
         VStack {
             ScrollView {
                 VStack(spacing: 12) {
-                    if let url = episode.mediumPosterURL {
+                    if let url = episode.originalPosterURL {
                         if let poster = ImageCache.shared[url] {
                             poster
                                 .posterFormat
                         } else {
                             AsyncImage(url: url) { phase in
-                                switch phase {
-                                    case .success(let image):
-                                        image.cacheImage(url: url)
-                                    default:
+                                switch phase {        
+                                case .success(let image):
+                                    image.cacheImage(url: url).posterFormat
+                                default:
+                                    VStack {
                                         Image(systemName: "photo").posterFormat
+                                    }
                                 }
                             }
                         }
                     }
-                    LabeledContent("Number:", value: "\(episode.number)")
-                    LabeledContent("Season:", value: "\(episode.seasonNumber)")
-                    if let summary = episode.summary?.removingHTMLTags {
-                        LabeledContent("Summary:", value: summary)
+                    
+                    Group {
+                        LabeledText(content: "Season", value: "\(episode.seasonNumber)")
+                        .font(.headline.weight(.semibold))
+                        Divider()
+                        LabeledText(content: "Number:", value: "\(episode.number)")
+                        Divider()
+                        if let summary = episode.summary?.removingHTMLTags {
+                            SummaryView(summary: summary)
+                        }
                     }
+                    .font(.subheadline)
+                    .padding(.horizontal, 16)
                 }
             }
+            .onAppear {
+                SeasonsAndEpisodesViewModel().fetchShowEpisodes(showId: 1)
+            }
+            .navigationTitle(episode.name)
+            .padding(.horizontal, 32)
+            .scrollIndicators(.hidden)
         }
-        .onAppear {
-            SeasonsAndEpisodesViewModel().fetchShowEpisodes(showId: 1)
-        }
-        .navigationTitle(episode.name)
-        .padding(.horizontal, 32)
     }
 }
+
+
 
 #Preview {
     EpisodeDetailsView(episode: Episode())

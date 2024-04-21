@@ -38,7 +38,7 @@ final class PagedShowsViewModelTests: XCTestCase {
         }
         
         // WHEN
-        sut.viewDidAppear()
+        sut.onViewAppear()
         
         
         // WHEN

@@ -12,14 +12,16 @@ struct EpisodeRowView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Episode: \(episode.number)")
+                Text("Episode: \(episode.number): ")
                 Spacer()
                 Text(episode.name)
+                    .multilineTextAlignment(.trailing)
                     .lineLimit(3)
+                    .minimumScaleFactor(0.5)
                     
             }
             .foregroundColor(.primary.opacity(0.6))
-            .frame(minHeight: 40)
+            .frame(minHeight: 32)
             Divider()
         }
         .padding(.leading, 8)

@@ -14,6 +14,8 @@ extension String {
             .replacingOccurrences(of: "</p>", with: "")
             .replacingOccurrences(of: "<b>", with: "")
             .replacingOccurrences(of: "</b>", with: "")
+            .replacingOccurrences(of: "<i>", with: "")
+            .replacingOccurrences(of: "</i>", with: "")
             .replacingOccurrences(of: "<br>", with: "\n\n")
             .replacingOccurrences(of: "<br \\>", with: "\n\n")
     }

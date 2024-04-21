@@ -11,11 +11,11 @@ struct PagedShowsView: View {
     @ObservedObject var viewModel: PagedShowsViewModel
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             if viewModel.isLoading {
                 Spacer()
                 buildProgressView()
-                Spacer()
+                Spacer().foregroundColor(.clear)
             } else {
                 List {
                     ForEach(viewModel.shows, id: \.id) { show in
@@ -29,26 +29,45 @@ struct PagedShowsView: View {
                 .listStyle(InsetGroupedListStyle())
                 
                 HStack(alignment: .center) {
-                    Button("", systemImage: "arrow.left", action: viewModel.previousPage)
-                        .fontWeight(.bold)
+                    Image(systemName: "arrow.left")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 28, height: 28)
+                        .foregroundColor(viewModel.selectedPage <= 0 ? .gray.opacity(0.7) : .blue)
                         .disabled(viewModel.selectedPage <= 0)
-                    Spacer()
+                        .onTapGesture {
+                            viewModel.previousPage()
+                        }
+                    
+                    Spacer().background(Color.gray.opacity(0.1))
+                    
                     Text("\(viewModel.selectedPage + 1)")
-                    Spacer()
-                    Button("", systemImage: "arrow.right", action: viewModel.nextPage)
-                        .fontWeight(.bold)
+                        .font(.title2)
+                    
+                    Spacer().background(Color.gray.opacity(0.1))
+                    
+                    Image(systemName: "arrow.right")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 28, height: 28)
+                        .foregroundColor(.blue)
+                        .onTapGesture {
+                            viewModel.nextPage()
+                        }
                 }
                 .padding(.horizontal, 32)
                 .frame(height: 40)
             }
         }
+        .background(Color.gray.opacity(0.1))
+        .frame(maxWidth: .infinity)
         .alert(viewModel.errorMessage, isPresented: $viewModel.showErrorMessage) {
             Button("OK") {
                 viewModel.showErrorMessage = false
             }
         }
         .onAppear {
-            viewModel.viewDidAppear()
+            viewModel.onViewAppear()
         }
         .navigationTitle("Shows")
     }
