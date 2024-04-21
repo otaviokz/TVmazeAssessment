@@ -25,7 +25,6 @@ class ShowSearchViewModel: ObservableObject {
                 if oldValue.searchSanitised != searchText.searchSanitised {
                     launchSearchTimer()
                 }
-                
             } else {
                 shows = []
                 timer?.invalidate()
@@ -56,7 +55,7 @@ class ShowSearchViewModel: ObservableObject {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: Self.searchDelay, repeats: false) { [unowned self] _ in
             Task {
-                await searchShows()
+                await self.searchShows()
             }
         }
     }

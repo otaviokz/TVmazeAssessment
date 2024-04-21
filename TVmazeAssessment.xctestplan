@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "2ACEB04B-7778-40DF-9541-BD9225D6C929",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:TVmazeAssessment.xcodeproj",
+      "identifier" : "2BA981122BB4A1910027CE94",
+      "name" : "TVmazeAssessment"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:TVmazeAssessment.xcodeproj",
+        "identifier" : "2BA981242BB4A1930027CE94",
+        "name" : "TVmazeAssessmentTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "target" : {
+        "containerPath" : "container:TVmazeAssessment.xcodeproj",
+        "identifier" : "2BA9812E2BB4A1930027CE94",
+        "name" : "TVmazeAssessmentUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

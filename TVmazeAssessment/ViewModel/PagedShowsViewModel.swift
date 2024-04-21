@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 enum PageChange {
-    case next
-    case previous
+    case next(num: Int = 1)
+    case previous(num: Int = 1)
     case same
 }
 
@@ -21,19 +21,21 @@ class PagedShowsViewModel: ObservableObject {
     @Published var showErrorMessage: Bool = false
     @Published var errorMessage: String = ""
     private(set) var selectedPage = 0
+    var displayablePage: Int {
+        selectedPage + 1
+    }
     
     init(api: TVmazeAPIClientType = TVmazeAPIClient.shared) {
         self.api = api
     }
     
-    func nextPage() {
-        
-        searchForPageWith(change: .next)
+    func nextPage(num: Int = 1) {
+        searchForPageWith(change: .next(num: num))
     }
     
-    func previousPage() {
+    func previousPage(num: Int = 1) {
         guard selectedPage > 0 else { return }
-        searchForPageWith(change: .previous)
+        searchForPageWith(change: .previous(num: num))
     }
     
     func onViewAppear() {
@@ -43,7 +45,7 @@ class PagedShowsViewModel: ObservableObject {
     }
     
     private func searchForPageWith(change: PageChange) {
-        Task {
+        Task { [unowned self] in
             await searchShows(change: change)
         }
     }
@@ -51,8 +53,8 @@ class PagedShowsViewModel: ObservableObject {
     @MainActor
     private func searchShows(change pageChange: PageChange) async {
         switch pageChange {
-            case .next: selectedPage += 1
-            case.previous: selectedPage -= 1
+            case .next(let num): selectedPage += num
+            case.previous(let num): selectedPage -= num
             case .same: break
         }
         showErrorMessage = false
@@ -62,8 +64,8 @@ class PagedShowsViewModel: ObservableObject {
             isLoading = false
         } catch {
             switch pageChange {
-                case .next: selectedPage -= 1
-                case .previous: selectedPage += 1
+                case .next(let num): selectedPage -= num
+                case .previous(let num): selectedPage += num
                 case .same: break
             }
             print(error.localizedDescription)

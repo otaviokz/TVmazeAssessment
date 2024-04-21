@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B2B22892BD9F45A00315510 /* PsgedShowsControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2B22882BD9F45A00315510 /* PsgedShowsControls.swift */; };
 		2B6FC0DC2BB76DE1003BF502 /* SeasonsAndEpisodesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FC0DB2BB76DE1003BF502 /* SeasonsAndEpisodesViewModelTests.swift */; };
 		2B6FC0DE2BB76E5D003BF502 /* XCTExpectation+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FC0DD2BB76E5D003BF502 /* XCTExpectation+Util.swift */; };
 		2B6FC0E02BB76FFC003BF502 /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FC0DF2BB76FFC003BF502 /* MockAPIClient.swift */; };
@@ -57,7 +58,7 @@
 		2BA981982BB694790027CE94 /* String+RemoveHTMLTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA981972BB694790027CE94 /* String+RemoveHTMLTags.swift */; };
 		2BAB684B2BD4B0EF0068CA3B /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAB684A2BD4B0EF0068CA3B /* SummaryView.swift */; };
 		2BAB684F2BD4B3CF0068CA3B /* LabeledValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAB684E2BD4B3CF0068CA3B /* LabeledValue.swift */; };
-		2BBC5C892BD01446009AA598 /* View+ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC5C882BD01446009AA598 /* View+ProgressView.swift */; };
+		2BDBCBFA2BD9FD17005C87CF /* CompatibleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBCBF92BD9FD17005C87CF /* CompatibleProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B2B22882BD9F45A00315510 /* PsgedShowsControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PsgedShowsControls.swift; sourceTree = "<group>"; };
 		2B6FC0DB2BB76DE1003BF502 /* SeasonsAndEpisodesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsAndEpisodesViewModelTests.swift; sourceTree = "<group>"; };
 		2B6FC0DD2BB76E5D003BF502 /* XCTExpectation+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTExpectation+Util.swift"; sourceTree = "<group>"; };
 		2B6FC0DF2BB76FFC003BF502 /* MockAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
@@ -132,7 +134,8 @@
 		2BA981992BB69AC50027CE94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2BAB684A2BD4B0EF0068CA3B /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		2BAB684E2BD4B3CF0068CA3B /* LabeledValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledValue.swift; sourceTree = "<group>"; };
-		2BBC5C882BD01446009AA598 /* View+ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ProgressView.swift"; sourceTree = "<group>"; };
+		2BDBCBF92BD9FD17005C87CF /* CompatibleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibleProgressView.swift; sourceTree = "<group>"; };
+		2BDBCBFB2BDA0A33005C87CF /* TVmazeAssessment.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TVmazeAssessment.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +174,7 @@
 		2BA9810A2BB4A1910027CE94 = {
 			isa = PBXGroup;
 			children = (
+				2BDBCBFB2BDA0A33005C87CF /* TVmazeAssessment.xctestplan */,
 				2BA981152BB4A1910027CE94 /* TVmazeAssessment */,
 				2BA981282BB4A1930027CE94 /* TVmazeAssessmentTests */,
 				2BA981322BB4A1930027CE94 /* TVmazeAssessmentUITests */,
@@ -217,8 +221,8 @@
 		2BA981282BB4A1930027CE94 /* TVmazeAssessmentTests */ = {
 			isa = PBXGroup;
 			children = (
-				2BA981832BB623FF0027CE94 /* ViewModel */,
 				2BA9815A2BB4B8570027CE94 /* Model */,
+				2BA981832BB623FF0027CE94 /* ViewModel */,
 				2BA981572BB4B7CC0027CE94 /* Util */,
 				2BA981522BB4B74A0027CE94 /* Documents */,
 				2BA981292BB4A1930027CE94 /* TVmazeAssessmentTests.swift */,
@@ -272,7 +276,6 @@
 		2BA9814F2BB4B3A30027CE94 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2BBC5C872BD01430009AA598 /* Utils */,
 				2BA981762BB60B490027CE94 /* Controls */,
 				2BA981752BB60B3B0027CE94 /* Screens */,
 			);
@@ -350,6 +353,8 @@
 				2BA981772BB60B5B0027CE94 /* ShowRowView.swift */,
 				2BAB684A2BD4B0EF0068CA3B /* SummaryView.swift */,
 				2BAB684E2BD4B3CF0068CA3B /* LabeledValue.swift */,
+				2B2B22882BD9F45A00315510 /* PsgedShowsControls.swift */,
+				2BDBCBF92BD9FD17005C87CF /* CompatibleProgressView.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -371,14 +376,6 @@
 				2BA981972BB694790027CE94 /* String+RemoveHTMLTags.swift */,
 			);
 			path = Styling;
-			sourceTree = "<group>";
-		};
-		2BBC5C872BD01430009AA598 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				2BBC5C882BD01446009AA598 /* View+ProgressView.swift */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,6 +520,8 @@
 				2BA981192BB4A1910027CE94 /* ContentView.swift in Sources */,
 				2BA9817A2BB611240027CE94 /* ImageCache.swift in Sources */,
 				2BAB684F2BD4B3CF0068CA3B /* LabeledValue.swift in Sources */,
+				2B2B22892BD9F45A00315510 /* PsgedShowsControls.swift in Sources */,
+				2BDBCBFA2BD9FD17005C87CF /* CompatibleProgressView.swift in Sources */,
 				2BA981712BB5FCA30027CE94 /* ShowSearchViewModel.swift in Sources */,
 				2BA981562BB4B7AE0027CE94 /* Images.swift in Sources */,
 				2BA9818B2BB65A760027CE94 /* SeasonsAndEpisodesViewModel.swift in Sources */,
@@ -531,7 +530,6 @@
 				2BA9816A2BB5EEAE0027CE94 /* Season.swift in Sources */,
 				2BA981452BB4A4AA0027CE94 /* Request+Utils.swift in Sources */,
 				2BA981892BB659E90027CE94 /* ShowDetailsView.swift in Sources */,
-				2BBC5C892BD01446009AA598 /* View+ProgressView.swift in Sources */,
 				2BA981942BB67DCB0027CE94 /* EpisodeDetailsView.swift in Sources */,
 				2BA981492BB4A4F80027CE94 /* HTTPClientError.swift in Sources */,
 				2BA9814B2BB4A5A50027CE94 /* TVmazeAPIClient.swift in Sources */,

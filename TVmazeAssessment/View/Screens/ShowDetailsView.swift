@@ -63,7 +63,7 @@ struct ShowDetailsView: View {
                         }
                         
                         if viewModel.isLoading {
-                            buildProgressView()
+                            CompatibleProgressView()
                         } else {
                             ForEach(viewModel.seasons, id: \.number) { season in
                                 VStack(alignment: .leading, spacing: 0) {
@@ -81,8 +81,6 @@ struct ShowDetailsView: View {
                                                 Angle(degrees: season.number == selectedSeason ? 90 : 0)
                                             )
                                             .foregroundColor(.blue)
-                                        
-                                        
                                     }
                                     .frame(height: 50)
                                     Rectangle()
@@ -105,15 +103,16 @@ struct ShowDetailsView: View {
                                 
                                 if selectedSeason == season.number {
                                     ForEach(season.episodes, id: \.id) { episode in
-                                        NavigationLink(destination: {
+                                        NavigationLink() {
                                             EpisodeDetailsView(episode: episode)
-                                        }, label: {
+                                        } label: {
                                             EpisodeRowView(episode: episode)
-                                        })
+                                        }
                                     }
                                 }
                             }
-                            Spacer().frame(height: 24)
+                            Spacer()
+                                .frame(height: 24)
                         }
                     }
                     .padding(.horizontal, 16)

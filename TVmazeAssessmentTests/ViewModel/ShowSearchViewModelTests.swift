@@ -27,7 +27,7 @@ final class ShowSearchViewModelTests: XCTestCase {
         // WHEN
         sut.searchText = "The"
         
-        _ = blockExpectation {
+        wait() {
             sut.isLoading == true &&
             sut.shows == []
         }
@@ -36,12 +36,10 @@ final class ShowSearchViewModelTests: XCTestCase {
             mockAPI.shows = mockAPI.defaultShows
         }
         
-        _ = blockExpectation {
+        wait() {
             sut.shows == mockAPI.defaultShows &&
             sut.isLoading == false
         }
-        
-        waitForExpectations(timeout: 5)
     }
 
     func testFetchShows_HttpError() {
@@ -55,20 +53,20 @@ final class ShowSearchViewModelTests: XCTestCase {
         XCTAssertEqual(sut.errorMessage, "")
         
         // GIVEN
-        mockAPI.error = TVmazeAPIClientError.unknown
-        
-        // WHEN
         sut.searchText = "The"
         
+        // WHEN
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            mockAPI.error = TVmazeAPIClientError.unknown
+        }
+        
         // THEN
-        _ = blockExpectation {
+        wait() {
             sut.isLoading == false &&
             sut.shows == [] &&
             sut.showErrorMessage == true &&
             sut.errorMessage == "Unable to search for 'The', please try again later."
         }
-        
-        waitForExpectations(timeout: 5)
     }
     
 //    func testPerformanceExample() throws {

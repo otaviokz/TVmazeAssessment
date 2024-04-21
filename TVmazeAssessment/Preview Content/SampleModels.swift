@@ -18,6 +18,7 @@ extension Show {
         schedule = Schedule(time: "22:00", days: ["Wednesday"])
         premiered = "2013-06-24"
         ended = "2015-09-10"
+        avgRating = 0.7
     }
 }
 

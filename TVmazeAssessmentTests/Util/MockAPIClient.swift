@@ -11,7 +11,14 @@ import Foundation
 class MockTVmazeAPIClient: TVmazeAPIClientType {
     var episodes: [Episode] = []
     func fetchEpisodes(showId: Int) async throws -> [Episode] {
-        return episodes
+        while true {
+            if let error = error {
+                throw error
+            } else if !episodes.isEmpty {
+                return episodes
+            }
+            sleep(1)
+        }
     }
     let defaultEpisodes = JSONLoader.showEpisodesSample()
     let defaultSeaons = JSONLoader.showEpisodesSample().seasons
@@ -32,7 +39,6 @@ class MockTVmazeAPIClient: TVmazeAPIClientType {
     func fetchShows(page: Int) async throws -> [Show] {
         page == 0 ? JSONLoader.showSearchSamplePage0() : JSONLoader.showSearchSamplePage1()
     }
-    
     
     let defaultShows = JSONLoader.showSearchSample()
 }
