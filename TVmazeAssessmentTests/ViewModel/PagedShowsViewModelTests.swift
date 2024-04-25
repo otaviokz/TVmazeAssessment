@@ -25,35 +25,29 @@ final class PagedShowsViewModelTests: XCTestCase {
         XCTAssertEqual(sut.errorMessage, "")
         
         // GIVEN
-        _ = blockExpectation {
-            // THEN
-            sut.isLoading == true &&
-            sut.shows == []
-        }
         
-        _ = blockExpectation {
-            // THEN sut should fetch page 0 when viewDidAppear
+        
+        // WHEN
+        sut.onViewAppear()
+
+        wait() {
             sut.isLoading == false &&
             sut.shows == JSONLoader.showSearchSamplePage0()
         }
         
-        // WHEN
-        sut.onViewAppear()
-        
-        
-        // WHEN
-        sut.previousPage()
+        sut.previousPage(num: 1)
         
         // GIVEN
-        _ = blockExpectation {
-            // THEN sut shouldn fetc 'next' page
+        wait() {
             sut.shows == JSONLoader.showSearchSamplePage0()
         }
         
         // WHEN
-        sut.nextPage()
+        sut.nextPage(num: 1)
         
-        waitForExpectations(timeout: 10)
+        wait() {
+            sut.shows == JSONLoader.showSearchSamplePage1()
+        }
     }
 
     func makeSUT() -> (PagedShowsViewModel, MockTVmazeAPIClient) {

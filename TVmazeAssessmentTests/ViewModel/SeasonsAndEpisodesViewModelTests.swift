@@ -17,9 +17,23 @@ final class SeasonsAndEpisodesViewModelTests: XCTestCase {
     func testFetchEpisodesAndSeasons() throws {
         // GIVEN
         let (sut, mockAPI) = makeSUT()
-        mockAPI.episodes = mockAPI.defaultEpisodes
         
-        _ = blockExpectation {
+        // WHEN
+        sut.fetchShowEpisodes(showId: 1)
+        
+        // THEN
+        wait() {
+            sut.isLoading == true &&
+            sut.seasons.isEmpty
+        }
+        
+        // WHEN
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            mockAPI.episodes = mockAPI.defaultEpisodes
+        }
+        
+        // THEN
+        wait() {
             sut.seasons.count == 3 &&
             sut.seasons[0].episodes.count == 13 &&
             sut.seasons[0].number == 1 &&
@@ -27,12 +41,6 @@ final class SeasonsAndEpisodesViewModelTests: XCTestCase {
             sut.seasons[2].number == 3 &&
             sut.seasons == mockAPI.defaultSeaons
         }
-        
-        // WHEN
-        sut.fetchShowEpisodes(showId: 1)
-        
-        // THEN
-        waitForExpectations(timeout: 10)
     }
     
     func makeSUT() -> (SeasonsAndEpisodesViewModel, MockTVmazeAPIClient) {

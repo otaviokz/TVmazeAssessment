@@ -14,7 +14,7 @@ struct ShowSearchView: View {
         VStack(alignment: .center, spacing: 16) {
             if viewModel.isLoading {
                 Spacer()
-                buildProgressView()
+                CompatibleProgressView()
                 Spacer()
             } else {
                 TextField("Type at least 2 letters", text: $viewModel.searchText)
@@ -50,5 +50,7 @@ struct ShowSearchView: View {
 }
 
 #Preview {
-    ShowSearchView(viewModel: ShowSearchViewModel())
+    NavigationView {
+        ShowSearchView(viewModel: ShowSearchViewModel())
+    }
 }

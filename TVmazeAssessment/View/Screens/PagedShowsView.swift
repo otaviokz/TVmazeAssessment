@@ -12,23 +12,25 @@ struct PagedShowsView: View {
     
     var body: some View {
         VStack(spacing: 0) {
+                Spacer()
+            }
             if viewModel.isLoading {
                 Spacer()
-                buildProgressView()
-                Spacer().foregroundColor(.clear)
+                CompatibleProgressView()
+                Spacer()
             } else {
                 List {
                     ForEach(viewModel.shows, id: \.id) { show in
-                        NavigationLink(destination: {
+                        NavigationLink() {
                             ShowDetailsView(show: show)
-                        }, label: {
+                        } label: {
                             ShowRowView(show: show)
-                        })
+                        }
                     }
                 }
                 .listStyle(InsetGroupedListStyle())
                 
-                HStack(alignment: .center) {
+                HStack(alignment: .center, spacing: 0) {
                     Image(systemName: "arrow.left")
                         .resizable()
                         .scaledToFit()
@@ -41,11 +43,10 @@ struct PagedShowsView: View {
                     
                     Spacer().background(Color.gray.opacity(0.1))
                     
-                    Text("\(viewModel.selectedPage + 1)")
-                        .font(.title2)
+                    PagedShowsControlsView(viewModel: viewModel)
                     
                     Spacer().background(Color.gray.opacity(0.1))
-                    
+
                     Image(systemName: "arrow.right")
                         .resizable()
                         .scaledToFit()
@@ -56,7 +57,7 @@ struct PagedShowsView: View {
                         }
                 }
                 .padding(.horizontal, 32)
-                .frame(height: 40)
+                .frame(height: 50)
             }
         }
         .background(Color.gray.opacity(0.1))
@@ -74,5 +75,7 @@ struct PagedShowsView: View {
 }
 
 #Preview {
-    PagedShowsView(viewModel: PagedShowsViewModel())
+    NavigationView {
+        PagedShowsView(viewModel: PagedShowsViewModel())
+    }
 }

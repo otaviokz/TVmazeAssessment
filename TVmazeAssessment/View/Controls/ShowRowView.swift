@@ -14,6 +14,7 @@ struct ShowRowView: View {
         HStack(alignment: .center, spacing: 0) {
             Text(show.name)
                 .font(.headline)
+            
             Spacer()
             if let url = show.mediumPosterURL {
                 if let image = ImageCache.shared[url] {
