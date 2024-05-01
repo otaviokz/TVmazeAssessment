@@ -14,30 +14,15 @@ struct EpisodeDetailsView: View {
         VStack {
             ScrollView {
                 VStack(spacing: 12) {
-                    if let url = episode.originalPosterURL {
-                        if let poster = ImageCache.shared[url] {
-                            poster
-                                .posterFormat
-                        } else {
-                            AsyncImage(url: url) { phase in
-                                switch phase {        
-                                case .success(let image):
-                                    image.cacheImage(url: url).posterFormat
-                                default:
-                                    VStack {
-                                        Image(systemName: "photo").posterFormat
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    
+                    PosterView(images: episode.images)
                     
                     Group {
                         LabeledText(content: "Season", value: "\(episode.seasonNumber)")
                         .font(.headline.weight(.semibold))
-                        Divider()
+                        
                         LabeledText(content: "Number:", value: "\(episode.number)")
-                        Divider()
+                        
                         if let summary = episode.summary?.removingHTMLTags {
                             SummaryView(summary: summary)
                         }

@@ -33,6 +33,11 @@ class PagedShowsViewModel: ObservableObject {
         searchForPageWith(change: .next(num: num))
     }
     
+    func firstPage() {
+        selectedPage = 0
+        searchForPageWith(change: .same)
+    }
+    
     func previousPage(num: Int = 1) {
         guard selectedPage > 0 else { return }
         searchForPageWith(change: .previous(num: num))

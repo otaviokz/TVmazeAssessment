@@ -17,6 +17,16 @@ struct CompatibleProgressView: View {
     }
 }
 
+struct SmallCompatibleProgressView: View {
+    var body: some View {
+        if #available(iOS 17.0, *) {
+            ProgressView()
+        } else {
+            ProgressView()
+        }
+    }
+}
+
 #Preview {
     NavigationView {
         CompatibleProgressView()

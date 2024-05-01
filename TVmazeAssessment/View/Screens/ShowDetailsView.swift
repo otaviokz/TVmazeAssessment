@@ -22,40 +22,46 @@ struct ShowDetailsView: View {
             ScrollViewReader { scrollReader in
                 ScrollView {
                     VStack {
-                        if let url = show.originalPosterURL {
-                            if let poster = ImageCache.shared[url] {
-                                poster.posterFormat
-                            } else {
-                                AsyncImage(url: url) { phase in
-                                    switch phase {
-                                        case .success(let image):
-                                            image.cacheImage(url: url).posterFormat
-                                        default:
-                                            Image(systemName: "photo").posterFormat
-                                    }
-                                }
-                            }
-                        }
+                        
+                        PosterView(images: show.images)
                         
                         Spacer().frame(height: 24)
                         if !show.schedule.days.isEmpty {
                             LabeledText(content: "Airing days:", value: show.schedule.days.joined(separator: ", "))
-                                .padding(.bottom, 8)
-                            Divider()
                         }
                         
                         if !show.schedule.time.isEmpty {
                             LabeledText(content: "Air time:", value: show.schedule.time)
-                                .padding(.bottom, 8)
-                            Divider()
                         }
                         
-                        LabeledText(content: "Genres:", value: show.genres.joined(separator: ", "))
-                            .padding(.bottom, 8)
-                        Divider()
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("Genres:")
+                                .font(.title3.weight(.medium))
+                                .padding(.bottom, 8)
+                            Text(show.genres.joined(separator: ", "))
+                                .font(.callout.weight(.medium))
+                                .opacity(0.5)
+                                .minimumScaleFactor(0.5)
+                                .padding(.bottom, 12)
+                            Divider()
+                        }
+                        .frame(height: 70)
+                        
+                        if let premiered = dateStringFor(show.premiered) {
+                            LabeledText(content: "Premiered", value: premiered)
+                        }
+                        
+                        if let ended = dateStringFor(show.ended) {
+                            LabeledText(content: "Ended", value: ended)
+                        }
+
+                        if let avgRating = show.avgRating {
+                            LabeledText(content: "Avg Raring", value: "\(avgRating)")
+                        }
                         
                         if let summary = show.summary?.removingHTMLTags {
                             VStack(alignment: .leading) {
+                                
                                 SummaryView(summary: summary)
                                 Spacer().frame(height: 24)
                                 Divider()
@@ -68,10 +74,16 @@ struct ShowDetailsView: View {
                             ForEach(viewModel.seasons, id: \.number) { season in
                                 VStack(alignment: .leading, spacing: 0) {
                                     Spacer()
+                                   
                                     HStack {
-                                        LabeledText(content: "Season \(season.number)", value: "\(season.episodes.count) episodes")
+                                        LabeledText(
+                                            content: "Season \(season.number)",
+                                            value: "\(season.episodes.count) episodes"
+                                        )
                                             .padding(.trailing, 4)
+                                        
                                         Spacer()
+                                        
                                         Image(systemName: "arrow.right")
                                             .resizable()
                                             .scaledToFit()
@@ -83,10 +95,6 @@ struct ShowDetailsView: View {
                                             .foregroundColor(.blue)
                                     }
                                     .frame(height: 50)
-                                    Rectangle()
-                                        .frame(maxWidth: .infinity)
-                                        .frame(height: 0.75)
-                                        .foregroundColor(.gray)
                                 }
                                 .id(season.number)
                                 .onTapGesture {
@@ -129,7 +137,14 @@ struct ShowDetailsView: View {
             }
         }
     }
+    
+    func dateStringFor(_ dateString: String?) -> String? {
+        guard  let dateString = dateString, let date = Dates.dateBuilder.date(from: dateString) else { return nil }
+        return Dates.dateStringBuilder.string(from: date)
+    }
 }
+
+
 
 #Preview {
     NavigationView {

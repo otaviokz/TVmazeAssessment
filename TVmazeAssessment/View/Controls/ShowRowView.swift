@@ -7,15 +7,21 @@
 
 import SwiftUI
 
-struct ShowRowView: View {
+struct ShowRowView: View, PosterHavingType {
     let show: Show
+    var images: Images? {
+        show.images
+    }
     
     var body: some View {
         HStack(alignment: .center, spacing: 0) {
-            Text(show.name)
-                .font(.headline)
-            
+            VStack(alignment: .leading) {
+                Text(show.name)
+                    .font(.title3.weight(.medium))
+            }
+
             Spacer()
+            
             if let url = show.mediumPosterURL {
                 if let image = ImageCache.shared[url] {
                     image
@@ -38,11 +44,6 @@ struct ShowRowView: View {
         .frame(height: 82)
         .padding(.horizontal)
         .padding(.vertical, 4)
-    }
-    
-    @MainActor func cacheAndReturnImage(url: URL, image: Image) -> Image {
-        ImageCache.shared[url] = image
-        return image
     }
 }
 
