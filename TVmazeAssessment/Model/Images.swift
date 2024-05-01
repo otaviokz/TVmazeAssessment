@@ -10,4 +10,12 @@ import Foundation
 struct Images: Codable {
     let medium: String
     let original: String
+    
+    var mediumPosterURL: URL? {
+        URL(string: medium)
+    }
+    
+    var originalPosterURL: URL? {
+        URL(string: original)
+    }
 }

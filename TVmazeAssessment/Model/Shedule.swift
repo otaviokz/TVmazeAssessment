@@ -10,4 +10,8 @@ import Foundation
 struct Schedule: Codable {
     let time: String
     let days: [String]
+    
+    var displayableDays: String {
+        days.map { "\($0)s"}.joined(separator: ",")
+    }
 }

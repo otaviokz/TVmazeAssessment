@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 protocol PosterHavingType {
     var images: Images? { get }
@@ -15,12 +16,15 @@ protocol PosterHavingType {
 
 extension PosterHavingType {
     var mediumPosterURL: URL? {
-        guard let medium = images?.medium else { return nil }
-        return URL(string: medium)
+        images?.mediumPosterURL
     }
     
     var originalPosterURL: URL? {
-        guard let original = images?.original else { return nil }
-        return URL(string: original)
+        images?.originalPosterURL
+    }
+    
+    @MainActor func cacheAndReturnImage(url: URL, image: Image) -> Image {
+        ImageCache.shared[url] = image
+        return image
     }
 }
